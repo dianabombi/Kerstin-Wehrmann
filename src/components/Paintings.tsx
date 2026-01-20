@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Painting {
   id: number;
@@ -11,6 +11,30 @@ interface Painting {
 }
 
 const Paintings = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
   const paintings: Painting[] = [
     {
       id: 1,
@@ -64,7 +88,7 @@ const Paintings = () => {
 
   const PaintingCard = ({ painting }: { painting: Painting }) => (
     <div className="group">
-      <div className="aspect-[4/5] overflow-hidden mb-8 bg-white">
+      <div className="aspect-[3/4] overflow-hidden mb-8 bg-white">
         {painting.image && (
           <img
             src={painting.image}
@@ -95,17 +119,23 @@ const Paintings = () => {
   );
 
   return (
-    <section id="painting" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
-        <h2 className="text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-24">
+    <section 
+      ref={sectionRef}
+      id="painting" 
+      className={`py-32 bg-white transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-12">
           Painting
         </h2>
 
-        <div className="mb-32">
-          <h3 className="text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16">
+        <div className="mb-16 sm:mb-24">
+          <h3 className="text-xl sm:text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-12">
             Polo Paintings — Selected Works
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 sm:gap-x-16 gap-y-16 sm:gap-y-24">
             {poloPaintings.map((painting) => (
               <PaintingCard key={painting.id} painting={painting} />
             ))}
@@ -113,10 +143,10 @@ const Paintings = () => {
         </div>
 
         <div>
-          <h3 className="text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16">
+          <h3 className="text-xl sm:text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-12">
             Other Paintings
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 sm:gap-x-16 gap-y-16 sm:gap-y-24">
             {otherPaintings.map((painting) => (
               <PaintingCard key={painting.id} painting={painting} />
             ))}

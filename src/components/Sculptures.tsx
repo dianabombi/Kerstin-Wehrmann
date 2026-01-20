@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Sculpture {
   id: number;
@@ -9,6 +9,30 @@ interface Sculpture {
 }
 
 const Sculptures = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
   const sculptures: Sculpture[] = [
     {
       id: 1,
@@ -44,17 +68,30 @@ const Sculptures = () => {
       year: "2023",
       dimensions: "50 × 30 cm",
       image: "/steinbockkopf.PNG"
+    },
+    {
+      id: 6,
+      title: "Monkeys",
+      year: "2023",
+      dimensions: "45 × 35 cm",
+      image: "/monkeys.jpg"
     }
   ];
 
   return (
-    <section id="sculpture" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
-        <h2 className="text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-24">
+    <section 
+      ref={sectionRef}
+      id="sculpture" 
+      className={`py-32 bg-white transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16 sm:mb-24">
           Sculpture
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-24">
           {sculptures.map((sculpture) => (
             <div key={sculpture.id} className="group">
               <div className="aspect-square overflow-hidden mb-8 bg-white flex items-center justify-center">
