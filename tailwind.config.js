@@ -6,24 +6,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bordeaux: {
-          50: '#f8f5f6',
-          100: '#f1e7e9',
-          200: '#e4d1d5',
-          300: '#d3b5bc',
-          400: '#bc959f',
-          500: '#a0727a',
-          600: '#8b5a62',
-          700: '#73444b',
-          800: '#5c3638',
-          900: '#4a2a2b',
-        }
+        stone: {
+          50: '#fafaf9',
+          100: '#f5f5f4',
+          200: '#e7e5e4',
+          300: '#d6d3d1',
+          400: '#a8a29e',
+          500: '#78716c',
+          600: '#57534e',
+          700: '#44403c',
+          800: '#292524',
+          900: '#1c1917',
+        },
       },
       fontFamily: {
-        'elegant': ['Playfair Display', 'serif'],
-        'minimal': ['Inter', 'sans-serif'],
-        'script': ['Dancing Script', 'cursive'],
-      }
+        'serif': ['Cormorant Garamond', 'serif'],
+        'sans': ['Inter', 'sans-serif'],
+      },
+      letterSpacing: {
+        'luxury': '0.05em',
+      },
     },
   },
   plugins: [],

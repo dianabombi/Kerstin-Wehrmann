@@ -3,123 +3,124 @@ import React from 'react';
 interface Painting {
   id: number;
   title: string;
-  medium: string;
-  dimensions: string;
   year: string;
-  price: string;
+  technique: string;
+  dimensions: string;
   image?: string;
+  category: 'polo' | 'other';
 }
 
 const Paintings = () => {
   const paintings: Painting[] = [
     {
       id: 1,
-      title: "Polo Morning",
-      medium: "Oil on Canvas",
-      dimensions: "48\" x 36\"",
+      title: "Polo I",
       year: "2023",
-      price: "$12,000",
-      image: "/Gemälde-035-Bearbeitet-Bearbeitet.jpg"
+      technique: "Plexiglas",
+      dimensions: "120 × 90 cm",
+      image: "/Gemälde-035-Bearbeitet-Bearbeitet.jpg",
+      category: 'polo'
     },
     {
       id: 2,
-      title: "The Charge",
-      medium: "Watercolor",
-      dimensions: "24\" x 18\"",
+      title: "Polo II",
       year: "2024",
-      price: "$4,500",
-      image: "/Gemälde-052-Bearbeitet.jpg"
+      technique: "Plexiglas",
+      dimensions: "100 × 75 cm",
+      image: "/Gemälde-052-Bearbeitet.jpg",
+      category: 'polo'
     },
     {
       id: 3,
-      title: "Elegant Motion",
-      medium: "Oil on Canvas",
-      dimensions: "60\" x 40\"",
+      title: "Polo III",
       year: "2022",
-      price: "$18,000",
-      image: "/Gemälde-060-Bearbeitet.jpg"
+      technique: "Plexiglas",
+      dimensions: "150 × 100 cm",
+      image: "/Gemälde-060-Bearbeitet.jpg",
+      category: 'polo'
     },
     {
       id: 4,
-      title: "Sunset Polo",
-      medium: "Oil on Canvas",
-      dimensions: "36\" x 48\"",
+      title: "Study I",
       year: "2023",
-      price: "$15,000",
-      image: "/Gemälde-061-Bearbeitet.jpg"
+      technique: "Mixed media",
+      dimensions: "90 × 120 cm",
+      image: "/Gemälde-061-Bearbeitet.jpg",
+      category: 'other'
     },
     {
       id: 5,
-      title: "Polo Players",
-      medium: "Charcoal Sketch",
-      dimensions: "18\" x 24\"",
+      title: "Study II",
       year: "2024",
-      price: "$2,800",
-      image: "/Gemälde-062-Bearbeitet.jpg"
-    },
-    {
-      id: 6,
-      title: "Golden Hour",
-      medium: "Watercolor",
-      dimensions: "30\" x 22\"",
-      year: "2023",
-      price: "$5,200",
-      image: "/Gemälde-063-Bearbeitet.jpg"
+      technique: "Mixed media",
+      dimensions: "45 × 60 cm",
+      image: "/Gemälde-062-Bearbeitet.jpg",
+      category: 'other'
     }
   ];
 
+  const poloPaintings = paintings.filter(p => p.category === 'polo');
+  const otherPaintings = paintings.filter(p => p.category === 'other');
+
+  const PaintingCard = ({ painting }: { painting: Painting }) => (
+    <div className="group">
+      <div className="aspect-[4/5] overflow-hidden mb-8 bg-white">
+        {painting.image && (
+          <img
+            src={painting.image}
+            alt={painting.title}
+            className="w-full h-full object-contain"
+          />
+        )}
+      </div>
+      
+      <div className="text-center space-y-2">
+        <h3 className="text-xl font-serif font-light text-stone-900 tracking-luxury">
+          {painting.title}
+        </h3>
+        <p className="text-sm font-sans text-stone-600">
+          {painting.year}
+        </p>
+        <p className="text-sm font-sans text-stone-600">
+          {painting.technique}
+        </p>
+        <p className="text-sm font-sans text-stone-600 mb-4">
+          {painting.dimensions}
+        </p>
+        <a href="#contact" className="inline-block text-sm font-sans text-stone-900 hover:text-stone-600 transition-colors duration-200 tracking-luxury uppercase mt-4">
+          Private Inquiry
+        </a>
+      </div>
+    </div>
+  );
+
   return (
-    <section id="paintings" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-elegant font-bold text-bordeaux-900 mb-4">
-            Paintings
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Original artworks celebrating the elegance and power of horse polo
-          </p>
+    <section id="painting" className="py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-8">
+        <h2 className="text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-24">
+          Painting
+        </h2>
+
+        <div className="mb-32">
+          <h3 className="text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16">
+            Polo Paintings — Selected Works
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-24">
+            {poloPaintings.map((painting) => (
+              <PaintingCard key={painting.id} painting={painting} />
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {paintings.map((painting) => (
-            <div key={painting.id} className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-              <div className="aspect-w-4 aspect-h-3 bg-white relative overflow-hidden">
-                {painting.image ? (
-                  <img
-                    src={painting.image}
-                    alt={painting.title}
-                    className="w-full h-full object-contain p-4"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-bordeaux-100 to-bordeaux-200">
-                    <div className="text-bordeaux-600 text-center">
-                      <svg className="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                      </svg>
-                      <p className="text-sm">Painting Preview</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-elegant font-semibold text-gray-900 mb-2">
-                  {painting.title}
-                </h3>
-                <p className="text-gray-600 mb-1">{painting.medium}</p>
-                <p className="text-gray-500 text-sm mb-1">{painting.dimensions}</p>
-                <p className="text-gray-500 text-sm mb-4">{painting.year}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-elegant font-bold text-bordeaux-700">
-                    {painting.price}
-                  </span>
-                  <button className="text-bordeaux-700 hover:text-bordeaux-800 font-medium transition-colors duration-300">
-                    Inquire →
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div>
+          <h3 className="text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16">
+            Other Paintings
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+            {otherPaintings.map((painting) => (
+              <PaintingCard key={painting.id} painting={painting} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
