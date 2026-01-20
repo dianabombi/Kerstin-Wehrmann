@@ -12,7 +12,7 @@ const Sculptures = () => {
   const sculptures: Sculpture[] = [
     {
       id: 1,
-      title: "Horse",
+      title: "Horse I",
       year: "2023",
       dimensions: "70 × 45 cm",
       image: "/horse.JPG"
@@ -23,6 +23,27 @@ const Sculptures = () => {
       year: "2023",
       dimensions: "60 cm",
       image: "/dog.JPG"
+    },
+    {
+      id: 3,
+      title: "Horse II",
+      year: "2023",
+      dimensions: "65 × 40 cm",
+      image: "/IMG_6030.jpg"
+    },
+    {
+      id: 4,
+      title: "Horse III",
+      year: "2023",
+      dimensions: "55 × 35 cm",
+      image: "/IMG_6020.jpg"
+    },
+    {
+      id: 5,
+      title: "Steinbock",
+      year: "2023",
+      dimensions: "50 × 30 cm",
+      image: "/steinbockkopf.PNG"
     }
   ];
 
