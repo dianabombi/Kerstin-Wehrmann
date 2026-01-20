@@ -57,12 +57,12 @@ const Sculptures = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
           {sculptures.map((sculpture) => (
             <div key={sculpture.id} className="group">
-              <div className="aspect-[3/4] overflow-hidden mb-8 bg-white">
+              <div className="aspect-square overflow-hidden mb-8 bg-white flex items-center justify-center">
                 {sculpture.image && (
                   <img
                     src={sculpture.image}
                     alt={sculpture.title}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain p-8"
                   />
                 )}
               </div>
