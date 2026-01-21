@@ -18,9 +18,15 @@ const Navbar = () => {
           
           <div className="hidden md:block">
             <div className="flex items-center space-x-12">
-              <Link to="/works" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
-                Works
-              </Link>
+              {isHomePage ? (
+                <a href="#works" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  Works
+                </a>
+              ) : (
+                <Link to="/#works" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  Works
+                </Link>
+              )}
               {isHomePage ? (
                 <a href="#about" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
                   About
@@ -80,9 +86,15 @@ const Navbar = () => {
           ></div>
           <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 shadow-lg animate-slide-up z-50">
             <div className="px-8 py-12 space-y-12">
-              <Link to="/works" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
-                Works
-              </Link>
+              {isHomePage ? (
+                <a href="#works" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  Works
+                </a>
+              ) : (
+                <Link to="/#works" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  Works
+                </Link>
+              )}
               {isHomePage ? (
                 <a href="#about" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
                   About

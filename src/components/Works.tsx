@@ -9,8 +9,8 @@ const Works = () => {
         <img
           src="/Kerstin.png"
           alt="Kerstin A. Wehrmann at work"
-          className="w-full h-full object-contain sm:object-cover"
-          style={{ objectPosition: '50% center' }}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: '50% 1%' }}
         />
         
         {/* Dark Grey Gradient Overlay */}
@@ -24,7 +24,7 @@ const Works = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 pb-12 sm:pb-16">
+      <div className="relative z-10 w-full mx-auto px-4 sm:px-8 pb-12 sm:pb-16">
         {/* Buttons */}
         <div className="flex flex-col gap-4 sm:gap-6 max-w-xs">
           <Link to="/sculptures" className="px-6 py-3 bg-white text-stone-900 border font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
