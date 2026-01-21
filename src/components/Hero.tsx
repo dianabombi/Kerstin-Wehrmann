@@ -2,39 +2,59 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-24 sm:pt-32 pb-8 sm:pb-0 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
-          <div className="flex justify-center lg:justify-start order-1 lg:order-1">
-            <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 bg-stone-900">
+      <div className="w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center">
+          {/* Horse Image - Left Side */}
+          <div className="relative h-screen order-2 lg:order-1 overflow-hidden bg-stone-900">
+            <div className="relative h-full w-full">
               <img
                 src="/horse.JPG"
                 alt="Bronze sculpture by Kerstin A. Wehrmann"
-                className="w-full h-auto object-contain"
+                className="w-auto h-full object-contain pl-44"
+              />
+              {/* Left edge gradient */}
+              <div 
+                className="absolute top-0 left-0 bottom-0 w-96"
+                style={{
+                  background: 'linear-gradient(to right, rgb(28,25,23) 50%, rgba(28,25,23,0.9) 60%, rgba(28,25,23,0.6) 80%, transparent 100%)',
+                  pointerEvents: 'none'
+                }}
+              />
+              {/* Right edge gradient */}
+              <div 
+                className="absolute top-0 right-0 bottom-0 w-96"
+                style={{
+                  background: 'linear-gradient(to left, rgb(28,25,23) 15%, rgba(28,25,23,0.9) 30%, rgba(28,25,23,0.6) 60%, transparent 100%)',
+                  pointerEvents: 'none'
+                }}
               />
             </div>
           </div>
           
-          <div className="space-y-3 sm:space-y-6 lg:space-y-8 text-center lg:text-right order-2 lg:order-2">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-light text-stone-900 tracking-luxury leading-tight px-2">
-              Kerstin A. Wehrmann
-            </h1>
-            
-            <p className="text-sm sm:text-lg md:text-xl font-sans font-light text-stone-700 tracking-luxury italic px-2">
-              Art speaks where words fail.
-            </p>
-            
-            <p className="text-sm sm:text-lg md:text-xl font-sans font-light text-stone-700 tracking-luxury px-2">
-              Sculpture and Painting
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-8 pt-2 sm:pt-4 justify-center lg:justify-end px-2 sm:px-0">
-              <a href="#sculpture" className="btn-primary text-center py-3.5 sm:py-3 text-sm sm:text-sm px-6 sm:px-8 inline-block">
-                Selected Works
-              </a>
-              <a href="#contact" className="btn-secondary text-center py-3.5 sm:py-3 text-sm sm:text-sm px-6 sm:px-8 inline-block">
-                Private Inquiry
-              </a>
+          {/* Content - Right Side */}
+          <div className="order-1 lg:order-2 px-4 sm:px-8 lg:pr-8">
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-light text-white tracking-luxury leading-tight">
+                Kerstin A. Wehrmann
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-xl font-sans font-light text-white/90 tracking-luxury italic">
+                Art speaks where words fail.
+              </p>
+              
+              <p className="text-base sm:text-lg md:text-xl font-sans font-light text-white/90 tracking-luxury">
+                Sculpture and Painting
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-4 justify-center lg:justify-start">
+                <a href="#sculpture" className="btn-primary text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block bg-white text-stone-900 border-white hover:bg-stone-900 hover:text-white transition-colors duration-300">
+                  Selected Works
+                </a>
+                <a href="#contact" className="btn-secondary text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block bg-transparent text-white border-white hover:bg-white hover:text-stone-900">
+                  Private Inquiry
+                </a>
+              </div>
             </div>
           </div>
         </div>
