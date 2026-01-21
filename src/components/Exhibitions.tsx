@@ -15,21 +15,21 @@ const Exhibitions = () => {
       title: "Gallery10",
       location: "St. Moritz",
       date: "2024-2026",
-      image: "/gallery10-stmoritz.jpg"
+      image: "/Gevena Polo.jpg"
     },
     {
       id: 2,
       title: "Hublot Polo Gold Cup",
       location: "Gstaad",
       date: "2025",
-      image: "/hublot-polo-gstaad.jpg"
+      image: "/Gevena Polo.jpg"
     },
     {
       id: 3,
       title: "Geneva Polo Club",
       location: "Geneva",
       date: "2025",
-      image: "/geneva-polo-club.jpg"
+      image: "/Gevena Polo.jpg"
     }
   ];
 
@@ -44,8 +44,17 @@ const Exhibitions = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {exhibitions.map((exhibition) => (
-            <div key={exhibition.id} className="group border border-stone-200 p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:border-stone-400 hover:shadow-lg">
-              <div className="text-center space-y-2 sm:space-y-3 lg:space-y-4">
+            <div key={exhibition.id} className="group">
+              {exhibition.image && (
+                <div className="aspect-[4/3] overflow-hidden mb-4 sm:mb-6">
+                  <img
+                    src={exhibition.image}
+                    alt={exhibition.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <div className="text-center space-y-2 sm:space-y-3">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-serif font-light text-stone-900 tracking-luxury">
                   {exhibition.title}
                 </h3>

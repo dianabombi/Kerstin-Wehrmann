@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { CardSkeleton } from './Skeleton';
 
 interface Sculpture {
   id: number;
@@ -10,6 +11,7 @@ interface Sculpture {
 
 const Sculptures = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
