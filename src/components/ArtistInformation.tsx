@@ -4,9 +4,11 @@ const ArtistInformation = () => {
   return (
     <section id="about" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16 sm:mb-24">
-          About
-        </h2>
+        <div className="flex justify-center mb-16 sm:mb-24">
+          <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+            About
+          </h2>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="space-y-6">

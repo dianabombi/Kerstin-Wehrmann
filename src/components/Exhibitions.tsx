@@ -44,25 +44,16 @@ const Exhibitions = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
           {exhibitions.map((exhibition) => (
-            <div key={exhibition.id} className="group">
-              <div className="aspect-[4/3] overflow-hidden mb-6 bg-white">
-                {exhibition.image && (
-                  <img
-                    src={exhibition.image}
-                    alt={exhibition.title}
-                    className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80"
-                  />
-                )}
-              </div>
-              
-              <div className="text-center space-y-2">
-                <h3 className="text-xl font-serif font-light text-stone-900 tracking-luxury">
+            <div key={exhibition.id} className="group border border-stone-200 p-8 transition-all duration-300 hover:border-stone-400 hover:shadow-lg">
+              <div className="text-center space-y-4">
+                <h3 className="text-2xl font-serif font-light text-stone-900 tracking-luxury">
                   {exhibition.title}
                 </h3>
-                <p className="text-sm font-sans text-stone-600">
+                <div className="h-px bg-stone-200 w-16 mx-auto"></div>
+                <p className="text-base font-sans text-stone-700">
                   {exhibition.location}
                 </p>
-                <p className="text-sm font-sans text-stone-600">
+                <p className="text-sm font-sans text-stone-600 tracking-wider uppercase">
                   {exhibition.date}
                 </p>
               </div>
