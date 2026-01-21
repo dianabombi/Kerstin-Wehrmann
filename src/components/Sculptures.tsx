@@ -131,10 +131,10 @@ const Sculptures = () => {
                 <p className="text-xs sm:text-sm font-sans text-stone-600">
                   Bronze
                 </p>
-                <p className="text-xs sm:text-sm font-sans text-stone-600 mb-2 sm:mb-4">
+                <p className="text-xs sm:text-sm font-sans text-stone-600">
                   {sculpture.dimensions}
                 </p>
-                <a href="#contact" className="inline-block text-xs sm:text-sm font-sans text-stone-900 hover:text-stone-600 transition-colors duration-200 tracking-luxury uppercase mt-2 sm:mt-4">
+                <a href="#contact" className="inline-block text-xs sm:text-sm font-sans text-stone-900 border border-stone-900 px-6 py-2 hover:bg-stone-900 hover:text-white transition-colors duration-300 tracking-luxury uppercase mt-6 sm:mt-8">
                   Private Inquiry
                 </a>
               </div>

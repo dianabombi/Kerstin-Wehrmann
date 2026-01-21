@@ -1,35 +1,43 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Works = () => {
   return (
-    <section id="works" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <div className="relative aspect-[3/4] overflow-hidden">
-            <img
-              src="/Kerstin.png"
-              alt="Kerstin A. Wehrmann at work"
-              className="w-full h-full object-cover"
-            />
+    <section id="works" className="relative min-h-screen flex items-center overflow-hidden sm:mt-20">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/Kerstin.png"
+          alt="Kerstin A. Wehrmann at work"
+          className="w-full h-full object-cover "
+          style={{ objectPosition: '50% 1%' }}
+        />
+        
+        {/* Dark Gradient Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(28,25,23,0.95) 0%, rgba(41,37,36,0.8) 25%, rgba(68,64,60,0.6) 50%, rgba(87,83,78,0.3) 75%, transparent 100%)',
+            pointerEvents: 'none'
+          }}
+        />
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 mt-64 sm:mt-80">
+        {/* Buttons */}
+        <div className="flex flex-col gap-4 sm:gap-6">
+          <div className="flex gap-4 sm:gap-6">
+            <Link to="/sculptures" className="px-8 py-4 bg-white text-stone-900 border font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
+              Sculptures
+            </Link>
+            <Link to="/paintings" className="px-8 py-4 bg-stone-900 text-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
+              Painting
+            </Link>
           </div>
-          
-          <div className="flex flex-col gap-8 justify-center">
-            <a href="#sculpture" className="group">
-              <div className="border-2 border-stone-900 px-12 py-8 text-center transition-all duration-300 hover:bg-stone-900 hover:text-white">
-                <h2 className="text-3xl font-serif font-light tracking-luxury">
-                  Sculptures
-                </h2>
-              </div>
-            </a>
-            
-            <a href="#painting" className="group">
-              <div className="border-2 border-stone-900 px-12 py-8 text-center transition-all duration-300 hover:bg-stone-900 hover:text-white">
-                <h2 className="text-3xl font-serif font-light tracking-luxury">
-                  Paintings
-                </h2>
-              </div>
-            </a>
-          </div>
+          <Link to="/other-works" className="px-8 py-4 bg-transparent text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center self-start">
+            Other Work
+          </Link>
         </div>
       </div>
     </section>

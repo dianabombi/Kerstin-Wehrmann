@@ -15,7 +15,7 @@ const WorksPage = () => {
             src="/Kerstin.png"
             alt="Kerstin A. Wehrmann"
             className="w-full h-full object-cover"
-            style={{ objectPosition: '50% -7%' }}
+            style={{ objectPosition: '50% -10%' }}
           />
           {/* Dark Grey Gradient Overlay - Left to Right */}
           <div 
@@ -32,12 +32,13 @@ const WorksPage = () => {
         
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <Link to="/paintings" className="px-8 py-4 bg-white text-stone-900 border border-white font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
-                Painting
-              </Link>
-              <Link to="/sculptures" className="px-8 py-4 bg-stone-900 text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
+               <Link to="/sculptures" className="px-8 py-4 bg-white text-stone-900 border border-white font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
                 Sculptures
               </Link>
+              <Link to="/paintings" className="px-8 py-4 bg-stone-900 text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
+                Painting
+              </Link>
+             
             </div>
             
             {/* Other Work Button */}

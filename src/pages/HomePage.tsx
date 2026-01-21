@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import WorksTitle from '../components/WorksTitle';
+import Works from '../components/Works';
 import Sculptures from '../components/Sculptures';
 import ArtistInformation from '../components/ArtistInformation';
 import Exhibitions from '../components/Exhibitions';
@@ -12,6 +14,8 @@ const HomePage = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <WorksTitle />
+      <Works />
       <Sculptures />
       <ArtistInformation />
       <Exhibitions />
