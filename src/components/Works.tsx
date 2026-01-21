@@ -3,33 +3,33 @@ import React from 'react';
 const Works = () => {
   return (
     <section id="works" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <a href="#sculpture" className="group">
-            <div className="aspect-[3/4] overflow-hidden mb-6">
-              <img
-                src="/horse.JPG"
-                alt="Sculpture"
-                className="w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-80"
-              />
-            </div>
-            <h2 className="text-3xl font-serif font-light text-stone-900 tracking-luxury text-center">
-              Sculpture
-            </h2>
-          </a>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <img
+              src="/Kerstin.png"
+              alt="Kerstin A. Wehrmann at work"
+              className="w-full h-full object-cover"
+            />
+          </div>
           
-          <a href="#painting" className="group">
-            <div className="aspect-[3/4] overflow-hidden mb-6">
-              <img
-                src="/Gemälde-035-Bearbeitet-Bearbeitet.jpg"
-                alt="Painting"
-                className="w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-80"
-              />
-            </div>
-            <h2 className="text-3xl font-serif font-light text-stone-900 tracking-luxury text-center">
-              Painting
-            </h2>
-          </a>
+          <div className="flex flex-col gap-8 justify-center">
+            <a href="#sculpture" className="group">
+              <div className="border-2 border-stone-900 px-12 py-8 text-center transition-all duration-300 hover:bg-stone-900 hover:text-white">
+                <h2 className="text-3xl font-serif font-light tracking-luxury">
+                  Sculptures
+                </h2>
+              </div>
+            </a>
+            
+            <a href="#painting" className="group">
+              <div className="border-2 border-stone-900 px-12 py-8 text-center transition-all duration-300 hover:bg-stone-900 hover:text-white">
+                <h2 className="text-3xl font-serif font-light tracking-luxury">
+                  Paintings
+                </h2>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -15,10 +15,10 @@
 
 @layer components {
   .btn-primary {
-    @apply border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white px-8 py-3 transition-colors duration-200 font-sans text-sm tracking-luxury uppercase;
+    @apply border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white px-8 py-3 transition-colors duration-200 font-sans text-sm tracking-luxury uppercase shadow-md hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white px-8 py-3 transition-colors duration-200 font-sans text-sm tracking-luxury uppercase;
+    @apply border border-stone-900 bg-stone-900 text-white hover:bg-white hover:text-stone-900 px-8 py-3 transition-colors duration-200 font-sans text-sm tracking-luxury uppercase shadow-md hover:shadow-lg;
   }
 }

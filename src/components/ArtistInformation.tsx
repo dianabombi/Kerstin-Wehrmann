@@ -2,7 +2,7 @@ import React from 'react';
 
 const ArtistInformation = () => {
   return (
-    <section id="about" className="py-32 bg-white">
+    <section id="about" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16 sm:mb-24">
           About
@@ -25,13 +25,15 @@ const ArtistInformation = () => {
           
           <div className="relative aspect-[3/4] overflow-hidden">
             <img
-              src="/Kerstin.png"
+              src="/Kerstin2.png"
               alt="Kerstin A. Wehrmann"
-              className="w-full h-full object-cover object-right-top"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent"></div>
           </div>
         </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-16 sm:mt-20">
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-300 to-transparent"></div>
       </div>
     </section>
   );

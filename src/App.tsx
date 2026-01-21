@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Works from './components/Works';
 import Sculptures from './components/Sculptures';
 import Paintings from './components/Paintings';
 import ArtistInformation from './components/ArtistInformation';
+import Exhibitions from './components/Exhibitions';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -13,10 +13,10 @@ function App() {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <Works />
       <Sculptures />
       <Paintings />
       <ArtistInformation />
+      <Exhibitions />
       <Contact />
       <Footer />
     </div>

@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-white">
+    <section id="contact" className="py-16 sm:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury text-center mb-16 sm:mb-24">
           Private Inquiry
@@ -28,7 +28,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           <div>
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-12">
               <div>
                 <label htmlFor="name" className="block text-sm font-sans text-stone-700 mb-2 tracking-luxury uppercase">
                   Name
@@ -84,7 +84,7 @@ const Contact = () => {
           </div>
 
           <div className="flex items-center">
-            <div className="space-y-6">
+            <div className="space-y-12 text-right w-full">
               <div>
                 <p className="text-sm font-sans text-stone-700 tracking-luxury uppercase mb-2">
                   Studio Location
@@ -102,7 +102,7 @@ const Contact = () => {
                 <p className="text-base font-sans text-stone-600">
                   Kerstin A. Wehrmann<br />
                   <a href="mailto:info@wehrmannart.ch" className="hover:text-stone-900 transition-colors duration-200">
-                    info@wehrmannart.ch
+                    info[at]wehrmannart.ch
                   </a>
                 </p>
               </div>
