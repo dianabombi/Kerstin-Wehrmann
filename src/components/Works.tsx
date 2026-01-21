@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 
 const Works = () => {
   return (
-    <section id="works" className="relative min-h-screen flex items-center overflow-hidden sm:mt-20">
+    <section id="works" className="relative h-[80vh] sm:h-[120vh] flex items-end overflow-hidden sm:mt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/Kerstin.png"
           alt="Kerstin A. Wehrmann at work"
-          className="w-full h-full object-cover "
-          style={{ objectPosition: '50% 1%' }}
+          className="w-full h-full object-contain sm:object-cover"
+          style={{ objectPosition: '50% center' }}
         />
         
-        {/* Dark Gradient Overlay */}
+        {/* Dark Grey Gradient Overlay */}
         <div 
           className="absolute inset-0"
           style={{
@@ -24,18 +24,16 @@ const Works = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 mt-64 sm:mt-80">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 pb-12 sm:pb-16">
         {/* Buttons */}
-        <div className="flex flex-col gap-4 sm:gap-6">
-          <div className="flex gap-4 sm:gap-6">
-            <Link to="/sculptures" className="px-8 py-4 bg-white text-stone-900 border font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
-              Sculptures
-            </Link>
-            <Link to="/paintings" className="px-8 py-4 bg-stone-900 text-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
-              Painting
-            </Link>
-          </div>
-          <Link to="/other-works" className="px-8 py-4 bg-transparent text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center self-start">
+        <div className="flex flex-col gap-4 sm:gap-6 max-w-xs">
+          <Link to="/sculptures" className="px-6 py-3 bg-white text-stone-900 border font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
+            Sculpture
+          </Link>
+          <Link to="/paintings" className="px-6 py-3 bg-stone-900 text-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
+            Painting
+          </Link>
+          <Link to="/other-works" className="px-6 py-3 bg-transparent text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
             Other Work
           </Link>
         </div>

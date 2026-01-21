@@ -104,7 +104,7 @@ const Sculptures = () => {
             </button>
           )}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
-            Sculptures
+            Sculpture
           </h2>
         </div>
 

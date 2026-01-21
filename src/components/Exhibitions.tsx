@@ -22,7 +22,7 @@ const Exhibitions = () => {
       title: "Hublot Polo Gold Cup",
       location: "Gstaad",
       date: "2025",
-      image: "/Gevena Polo.jpg"
+      image: "/mami im zelt.jpg"
     },
     {
       id: 3,
@@ -46,11 +46,11 @@ const Exhibitions = () => {
           {exhibitions.map((exhibition) => (
             <div key={exhibition.id} className="group">
               {exhibition.image && (
-                <div className="aspect-[4/3] overflow-hidden mb-4 sm:mb-6">
+                <div className="aspect-[4/3] overflow-hidden mb-4 sm:mb-6 bg-stone-50">
                   <img
                     src={exhibition.image}
                     alt={exhibition.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
               )}

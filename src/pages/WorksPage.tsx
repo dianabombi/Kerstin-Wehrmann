@@ -33,7 +33,7 @@ const WorksPage = () => {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                <Link to="/sculptures" className="px-8 py-4 bg-white text-stone-900 border border-white font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
-                Sculptures
+                Sculpture
               </Link>
               <Link to="/paintings" className="px-8 py-4 bg-stone-900 text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
                 Painting
