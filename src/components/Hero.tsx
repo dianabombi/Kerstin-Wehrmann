@@ -3,25 +3,53 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 overflow-hidden bg-black">
       {/* Background Image - Left Positioned */}
-      <div className="absolute inset-0 z-0 bg-stone-900">
+      <div className="absolute inset-0 z-0 ml-80">
         <img
           src="/horse.JPG"
           alt="Bronze sculpture by Kerstin A. Wehrmann"
-          className="w-full h-full object-cover"
+          className=" h-full object-cover"
           style={{ objectPosition: '5% 25%' }}
         />
-        {/* Dark Grey to Transparent Gradient Overlay - Left to Right */}
+        
+        {/* Left Edge Gradient - Inside Out */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 z-[5]"
           style={{
-            background: 'linear-gradient(to right, rgba(28,25,23,0.9) 0%, rgba(41,37,36,0.7) 25%, rgba(68,64,60,0.5) 50%, rgba(87,83,78,0.3) 75%, transparent 100%)',
+            background: 'linear-gradient(to left, rgba(0,0,0,0) 90%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,1) 100%)',
+            pointerEvents: 'none'
+          }}
+        />
+        
+        {/* Right Edge Gradient - Inside Out */}
+        <div 
+          className="absolute inset-0 z-[5]"
+          style={{
+            background: 'linear-gradient(to right, rgba(0,0,0,0) 90%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,1) 100%)',
+            pointerEvents: 'none'
+          }}
+        />
+        
+        {/* Additional Right Edge Gradient - Inside the sculpture */}
+        <div 
+          className="absolute inset-0 z-[5]"
+          style={{
+            background: 'linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 5%, rgba(0,0,0,1) 8%, rgba(0,0,0,0) 15%)',
+            pointerEvents: 'none'
+          }}
+        />
+        
+        {/* Middle Gradient - Same as left */}
+        <div 
+          className="absolute inset-0 z-[5]"
+          style={{
+            background: 'linear-gradient(to right, rgba(0,0,0,0) 25%, rgba(0,0,0,0.8) 35%, rgba(0,0,0,1) 45%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 45%)',
             pointerEvents: 'none'
           }}
         />
       </div>
-      
+  
       {/* Content - Right Side */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex justify-end items-end h-[80vh]">
