@@ -11,11 +11,11 @@ const Hero = () => {
           className="w-full h-full object-cover"
           style={{ objectPosition: '5% 25%' }}
         />
-        {/* Dark Blue to Transparent Gradient Overlay - Left to Right */}
+        {/* Dark Grey to Transparent Gradient Overlay - Left to Right */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to right, rgba(15,23,42,0.9) 0%, rgba(30,41,59,0.7) 25%, rgba(51,65,85,0.5) 50%, rgba(100,116,139,0.3) 75%, transparent 100%)',
+            background: 'linear-gradient(to right, rgba(28,25,23,0.9) 0%, rgba(41,37,36,0.7) 25%, rgba(68,64,60,0.5) 50%, rgba(87,83,78,0.3) 75%, transparent 100%)',
             pointerEvents: 'none'
           }}
         />
