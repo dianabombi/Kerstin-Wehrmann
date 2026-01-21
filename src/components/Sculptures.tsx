@@ -35,13 +35,6 @@ const Sculptures = () => {
   }, []);
   const sculptures: Sculpture[] = [
     {
-      id: 1,
-      title: "Horse Head",
-      year: "2025",
-      dimensions: "70 × 45 × 30 cm / 27.6 × 17.7 × 11.8 inch",
-      image: "/horse.JPG"
-    },
-    {
       id: 2,
       title: "Capricorn Head",
       year: "2025",
@@ -50,9 +43,9 @@ const Sculptures = () => {
     },
     {
       id: 3,
-      title: "Horse",
-      year: "2025",
-      dimensions: "65 × 40 × 35 cm / 25.6 × 15.7 × 13.8 inch",
+      title: "Bear",
+      year: "2024",
+      dimensions: "60 × 35 × 30 cm / 23.6 × 13.8 × 11.8 inch",
       image: "/IMG_6030.jpg"
     },
     {
@@ -75,6 +68,13 @@ const Sculptures = () => {
       year: "2024",
       dimensions: "50 × 30 × 25 cm / 19.7 × 11.8 × 9.8 inch",
       image: "/dog.JPG"
+    },
+    {
+      id: 1,
+      title: "Horse Head",
+      year: "2025",
+      dimensions: "70 × 45 × 30 cm / 27.6 × 17.7 × 11.8 inch",
+      image: "/horse.JPG"
     }
   ];
 
@@ -87,13 +87,13 @@ const Sculptures = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex justify-center mb-16 sm:mb-24">
-          <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+        <div className="flex justify-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
             Sculpture
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-12 lg:gap-y-16">
           {sculptures.map((sculpture) => (
             <div key={sculpture.id} className="group">
               <div className="aspect-square overflow-hidden mb-8 bg-white flex items-center justify-center">
@@ -106,20 +106,20 @@ const Sculptures = () => {
                 )}
               </div>
               
-              <div className="text-center space-y-2">
-                <h3 className="text-xl font-serif font-light text-stone-900 tracking-luxury">
+              <div className="text-center space-y-1 sm:space-y-2">
+                <h3 className="text-lg sm:text-xl font-serif font-light text-stone-900 tracking-luxury">
                   {sculpture.title}
                 </h3>
-                <p className="text-sm font-sans text-stone-600">
+                <p className="text-xs sm:text-sm font-sans text-stone-600">
                   {sculpture.year}
                 </p>
-                <p className="text-sm font-sans text-stone-600">
+                <p className="text-xs sm:text-sm font-sans text-stone-600">
                   Bronze
                 </p>
-                <p className="text-sm font-sans text-stone-600 mb-4">
+                <p className="text-xs sm:text-sm font-sans text-stone-600 mb-2 sm:mb-4">
                   {sculpture.dimensions}
                 </p>
-                <a href="#contact" className="inline-block text-sm font-sans text-stone-900 hover:text-stone-600 transition-colors duration-200 tracking-luxury uppercase mt-4">
+                <a href="#contact" className="inline-block text-xs sm:text-sm font-sans text-stone-900 hover:text-stone-600 transition-colors duration-200 tracking-luxury uppercase mt-2 sm:mt-4">
                   Private Inquiry
                 </a>
               </div>

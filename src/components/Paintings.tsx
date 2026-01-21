@@ -80,7 +80,7 @@ const Paintings = () => {
 
   const PaintingCard = ({ painting }: { painting: Painting }) => (
     <div className="group">
-      <div className="aspect-[3/4] overflow-hidden mb-8 bg-white relative">
+      <div className="aspect-[3/4] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative">
         {painting.image && (
           <img
             src={painting.image}
@@ -89,27 +89,27 @@ const Paintings = () => {
           />
         )}
         {painting.sold && (
-          <div className="absolute top-4 right-4 bg-stone-900 text-white px-4 py-2 text-sm font-sans tracking-luxury uppercase">
+          <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-stone-900 text-white px-4 sm:px-4 py-2 sm:py-2 text-xs tracking-wider uppercase">
             SOLD
           </div>
         )}
       </div>
       
-      <div className="text-center space-y-2">
-        <h3 className="text-xl font-serif font-light text-stone-900 tracking-luxury">
+      <div className="text-center space-y-2 sm:space-y-2">
+        <h3 className="text-xl sm:text-xl font-serif font-light text-stone-900 tracking-luxury">
           {painting.title}
         </h3>
-        <p className="text-sm font-sans text-stone-600">
+        <p className="text-sm sm:text-sm font-sans text-stone-600">
           {painting.year}
         </p>
-        <p className="text-sm font-sans text-stone-600">
+        <p className="text-sm sm:text-sm font-sans text-stone-600">
           {painting.technique}
         </p>
-        <p className="text-sm font-sans text-stone-600 mb-4">
+        <p className="text-sm sm:text-sm font-sans text-stone-600 mb-3 sm:mb-4">
           {painting.dimensions}
         </p>
         {!painting.sold && (
-          <a href="#contact" className="inline-block text-sm font-sans text-stone-900 hover:text-stone-600 transition-colors duration-200 tracking-luxury uppercase mt-4">
+          <a href="#contact" className="inline-block text-sm sm:text-sm font-sans text-stone-900 hover:text-stone-600 transition-colors duration-200 tracking-luxury uppercase mt-3 sm:mt-4">
             Private Inquiry
           </a>
         )}
@@ -125,21 +125,23 @@ const Paintings = () => {
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex justify-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+      <div className="max-w-7xl mx-auto px-2 sm:px-8">
+        <div className="flex justify-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
             Painting
           </h2>
         </div>
 
         <div>
-          <h3 className="text-xl sm:text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-12">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-8 sm:mb-12">
             Polo Paintings — Selected Works
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 sm:gap-x-16 gap-y-16 sm:gap-y-24">
-            {poloPaintings.map((painting) => (
-              <PaintingCard key={painting.id} painting={painting} />
-            ))}
+          <div className="-mx-2 sm:mx-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-8 lg:gap-x-16 gap-y-12 sm:gap-y-12 lg:gap-y-16">
+              {poloPaintings.map((painting) => (
+                <PaintingCard key={painting.id} painting={painting} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

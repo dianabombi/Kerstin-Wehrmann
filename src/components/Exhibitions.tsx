@@ -36,24 +36,24 @@ const Exhibitions = () => {
   return (
     <section id="exhibitions" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex justify-center mb-16 sm:mb-24">
-          <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+        <div className="flex justify-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
             Exhibitions
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {exhibitions.map((exhibition) => (
-            <div key={exhibition.id} className="group border border-stone-200 p-8 transition-all duration-300 hover:border-stone-400 hover:shadow-lg">
-              <div className="text-center space-y-4">
-                <h3 className="text-2xl font-serif font-light text-stone-900 tracking-luxury">
+            <div key={exhibition.id} className="group border border-stone-200 p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:border-stone-400 hover:shadow-lg">
+              <div className="text-center space-y-2 sm:space-y-3 lg:space-y-4">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-serif font-light text-stone-900 tracking-luxury">
                   {exhibition.title}
                 </h3>
-                <div className="h-px bg-stone-200 w-16 mx-auto"></div>
-                <p className="text-base font-sans text-stone-700">
+                <div className="h-px bg-stone-200 w-12 sm:w-16 mx-auto"></div>
+                <p className="text-sm sm:text-base font-sans text-stone-700">
                   {exhibition.location}
                 </p>
-                <p className="text-sm font-sans text-stone-600 tracking-wider uppercase">
+                <p className="text-xs sm:text-sm font-sans text-stone-600 tracking-wider uppercase">
                   {exhibition.date}
                 </p>
               </div>
