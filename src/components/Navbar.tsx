@@ -1,32 +1,56 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   return (
     <nav className="fixed top-0 w-full bg-white z-50 border-b border-stone-200 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           <div className="flex-shrink-0">
-            <a href="#home" className="text-xl sm:text-2xl font-serif font-light text-stone-900 tracking-luxury">
+            <Link to="/" className="text-xl sm:text-2xl font-serif font-light text-stone-900 tracking-luxury">
               WehrmannArt
-            </a>
+            </Link>
           </div>
           
           <div className="hidden md:block">
             <div className="flex items-center space-x-12">
-              <a href="#sculpture" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+              <Link to="/works" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
                 Works
-              </a>
-              <a href="#about" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
-                About
-              </a>
-              <a href="#exhibitions" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
-                Exhibitions
-              </a>
-              <a href="#contact" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
-                Contact
-              </a>
+              </Link>
+              {isHomePage ? (
+                <a href="#about" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  About
+                </a>
+              ) : (
+                <Link to="/#about" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  About
+                </Link>
+              )}
+              {isHomePage ? (
+                <a href="#exhibitions" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  Exhibitions
+                </a>
+              ) : (
+                <Link to="/#exhibitions" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  Exhibitions
+                </Link>
+              )}
+              {isHomePage ? (
+                <a href="#contact" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  Contact
+                </a>
+              ) : (
+                <Link to="/#contact" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
+                  Contact
+                </Link>
+              )}
+              <span className="text-xs font-sans text-stone-600 tracking-wider uppercase">
+                EN | DE
+              </span>
             </div>
           </div>
           
@@ -56,18 +80,41 @@ const Navbar = () => {
           ></div>
           <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 shadow-lg animate-slide-up z-50">
             <div className="px-8 py-12 space-y-12">
-              <a href="#sculpture" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+              <Link to="/works" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
                 Works
-              </a>
-              <a href="#about" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
-                About
-              </a>
-              <a href="#exhibitions" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
-                Exhibitions
-              </a>
-              <a href="#contact" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
-                Contact
-              </a>
+              </Link>
+              {isHomePage ? (
+                <a href="#about" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  About
+                </a>
+              ) : (
+                <Link to="/#about" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  About
+                </Link>
+              )}
+              {isHomePage ? (
+                <a href="#exhibitions" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  Exhibitions
+                </a>
+              ) : (
+                <Link to="/#exhibitions" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  Exhibitions
+                </Link>
+              )}
+              {isHomePage ? (
+                <a href="#contact" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  Contact
+                </a>
+              ) : (
+                <Link to="/#contact" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
+                  Contact
+                </Link>
+              )}
+              <div className="pt-4 border-t border-stone-200">
+                <span className="block text-xs font-sans text-stone-600 tracking-wider uppercase">
+                  EN | DE
+                </span>
+              </div>
             </div>
           </div>
         </>

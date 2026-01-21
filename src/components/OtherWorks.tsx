@@ -1,18 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-interface Painting {
+interface OtherWork {
   id: number;
   title: string;
   year: string;
   technique: string;
   dimensions: string;
   image?: string;
-  category: 'polo' | 'other';
-  sold?: boolean;
 }
 
-const Paintings = () => {
+const OtherWorks = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -38,83 +36,54 @@ const Paintings = () => {
       }
     };
   }, []);
-  const paintings: Painting[] = [
+
+  const otherWorks: OtherWork[] = [
     {
       id: 1,
-      title: "Polo on Ice I",
+      title: "Other Work I",
       year: "2025",
-      technique: "ink and acrylic on perspex",
-      dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo1.jpg",
-      category: 'polo'
+      technique: "Mixed media",
+      dimensions: "TBD",
+      image: "/Other1.jpg"
     },
     {
       id: 2,
-      title: "Polo II",
+      title: "Other Work II",
       year: "2025",
-      technique: "ink and acrylic on perspex",
-      dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo2.jpg",
-      category: 'polo'
-    },
-    {
-      id: 3,
-      title: "Polo III",
-      year: "2025",
-      technique: "ink and acrylic on perspex",
-      dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo3.jpg",
-      category: 'polo'
-    },
-    {
-      id: 4,
-      title: "Polo IV",
-      year: "2025",
-      technique: "ink and acrylic on perspex",
-      dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo4.jpg",
-      category: 'polo',
-      sold: true
-    },
+      technique: "Mixed media",
+      dimensions: "TBD",
+      image: "/Other2.jpg"
+    }
   ];
 
-  const poloPaintings = paintings.filter(p => p.category === 'polo');
-
-  const PaintingCard = ({ painting }: { painting: Painting }) => (
+  const OtherWorkCard = ({ work }: { work: OtherWork }) => (
     <div className="group">
       <div className="aspect-[3/4] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative">
-        {painting.image && (
+        {work.image && (
           <img
-            src={painting.image}
-            alt={painting.title}
-            className="w-full h-full object-contain"
+            src={work.image}
+            alt={work.title}
+            className="w-full h-full object-cover"
           />
-        )}
-        {painting.sold && (
-          <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-stone-900 text-white px-4 sm:px-4 py-2 sm:py-2 text-xs tracking-wider uppercase">
-            SOLD
-          </div>
         )}
       </div>
       
       <div className="text-center space-y-2 sm:space-y-2">
         <h3 className="text-xl sm:text-xl font-serif font-light text-stone-900 tracking-luxury">
-          {painting.title}
+          {work.title}
         </h3>
         <p className="text-sm sm:text-sm font-sans text-stone-600">
-          {painting.technique}
+          {work.technique}
         </p>
         <p className="text-sm sm:text-sm font-sans text-stone-600">
-          {painting.dimensions}
+          {work.dimensions}
         </p>
         <p className="text-sm sm:text-sm font-sans text-stone-600">
-          {painting.year}
+          {work.year}
         </p>
-        {!painting.sold && (
-          <Link to="/#contact" className="inline-block text-sm sm:text-sm font-sans text-stone-900 border border-stone-900 px-6 py-2 hover:bg-stone-900 hover:text-white transition-colors duration-300 tracking-luxury uppercase mt-6 sm:mt-8">
-            Private Inquiry
-          </Link>
-        )}
+        <Link to="/#contact" className="inline-block text-sm sm:text-sm font-sans text-stone-900 border border-stone-900 px-6 py-2 hover:bg-stone-900 hover:text-white transition-colors duration-300 tracking-luxury uppercase mt-6 sm:mt-8">
+          Private Inquiry
+        </Link>
       </div>
     </div>
   );
@@ -122,7 +91,7 @@ const Paintings = () => {
   return (
     <section 
       ref={sectionRef}
-      id="painting" 
+      id="other-works" 
       className={`py-16 sm:py-20 bg-white transition-all duration-1000 ease-out ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
       }`}
@@ -139,18 +108,15 @@ const Paintings = () => {
             </svg>
           </button>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
-            Painting
+            Other Works
           </h2>
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-serif font-light text-stone-900 tracking-luxury text-center mb-8 sm:mb-12">
-            Polo Paintings — Selected Works
-          </h3>
           <div className="-mx-2 sm:mx-0">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-8 lg:gap-x-16 gap-y-12 sm:gap-y-12 lg:gap-y-16">
-              {poloPaintings.map((painting) => (
-                <PaintingCard key={painting.id} painting={painting} />
+              {otherWorks.map((work) => (
+                <OtherWorkCard key={work.id} work={work} />
               ))}
             </div>
           </div>
@@ -163,4 +129,4 @@ const Paintings = () => {
   );
 };
 
-export default Paintings;
+export default OtherWorks;

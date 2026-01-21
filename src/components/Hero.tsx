@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -30,18 +31,14 @@ const Hero = () => {
                 Kerstin A. Wehrmann
               </h1>
               
-              <p className="text-base sm:text-lg md:text-xl font-sans font-light text-white tracking-luxury italic" style={{ textShadow: '1px 1px 6px rgba(0,0,0,0.5)' }}>
-                Art speaks where words fail.
-              </p>
-              
               <p className="text-base sm:text-lg md:text-xl font-sans font-light text-white tracking-luxury" style={{ textShadow: '1px 1px 6px rgba(0,0,0,0.5)' }}>
                 Sculpture and Painting
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-4 justify-end">
-                <a href="#sculpture" className="text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block bg-white text-stone-900 border border-white hover:bg-stone-900 hover:text-white transition-colors duration-300">
+                <Link to="/works" className="text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block bg-white text-stone-900 border border-white hover:bg-stone-900 hover:text-white transition-colors duration-300">
                   Selected Works
-                </a>
+                </Link>
                 <a href="#contact" className="btn-secondary text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block">
                   Private Inquiry
                 </a>

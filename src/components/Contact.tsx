@@ -113,15 +113,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        
-        <div className="mt-12 sm:mt-16">
-          <div className="h-px bg-gradient-to-r from-transparent via-stone-300 to-transparent mb-6"></div>
-          <div className="text-center">
-            <p className="text-xs sm:text-sm font-sans text-stone-600 tracking-wider uppercase">
-              EN | DE
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

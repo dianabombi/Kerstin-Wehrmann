@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface Sculpture {
   id: number;
@@ -11,6 +12,9 @@ interface Sculpture {
 const Sculptures = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isOnSculpturesPage = location.pathname === '/sculptures';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,13 +39,6 @@ const Sculptures = () => {
   }, []);
   const sculptures: Sculpture[] = [
     {
-      id: 2,
-      title: "Capricorn Head",
-      year: "2025",
-      dimensions: "50 × 30 × 25 cm / 19.7 × 11.8 × 9.8 inch",
-      image: "/steinbockkopf.PNG"
-    },
-    {
       id: 3,
       title: "Bear",
       year: "2024",
@@ -54,6 +51,13 @@ const Sculptures = () => {
       year: "2025",
       dimensions: "55 × 40 × 30 cm / 21.7 × 15.7 × 11.8 inch",
       image: "/IMG_6020.jpg"
+    },
+    {
+      id: 2,
+      title: "Capricorn Head",
+      year: "2025",
+      dimensions: "50 × 30 × 25 cm / 19.7 × 11.8 × 9.8 inch",
+      image: "/steinbockkopf.PNG"
     },
     {
       id: 5,
@@ -87,21 +91,32 @@ const Sculptures = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex justify-center mb-8 sm:mb-12 lg:mb-16">
+        <div className="relative flex justify-center mb-8 sm:mb-12 lg:mb-16">
+          {isOnSculpturesPage && (
+            <button 
+              onClick={() => navigate(-1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-stone-900 hover:text-stone-600 transition-colors duration-200"
+              aria-label="Go back"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+            </button>
+          )}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
-            Sculpture
+            Sculptures
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-12 lg:gap-y-16">
           {sculptures.map((sculpture) => (
             <div key={sculpture.id} className="group">
-              <div className="aspect-square overflow-hidden mb-8 bg-white flex items-center justify-center">
+              <div className="aspect-square overflow-hidden mb-8 bg-white">
                 {sculpture.image && (
                   <img
                     src={sculpture.image}
                     alt={sculpture.title}
-                    className="w-full h-full object-contain p-8"
+                    className="w-full h-full object-cover"
                   />
                 )}
               </div>

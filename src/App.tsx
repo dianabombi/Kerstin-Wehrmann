@@ -1,25 +1,22 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Sculptures from './components/Sculptures';
-import Paintings from './components/Paintings';
-import ArtistInformation from './components/ArtistInformation';
-import Exhibitions from './components/Exhibitions';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import WorksPage from './pages/WorksPage';
+import PaintingsPage from './pages/PaintingsPage';
+import SculpturesPage from './pages/SculpturesPage';
+import OtherWorksPage from './pages/OtherWorksPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <Hero />
-      <Sculptures />
-      <Paintings />
-      <ArtistInformation />
-      <Exhibitions />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/works" element={<WorksPage />} />
+        <Route path="/paintings" element={<PaintingsPage />} />
+        <Route path="/sculptures" element={<SculpturesPage />} />
+        <Route path="/other-works" element={<OtherWorksPage />} />
+      </Routes>
+    </Router>
   );
 }
 

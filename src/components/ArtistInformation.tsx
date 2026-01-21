@@ -11,6 +11,14 @@ const ArtistInformation = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <img
+              src="/AboutKerstin.png"
+              alt="Kerstin A. Wehrmann"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
           <div className="space-y-4 sm:space-y-6">
             <p className="text-sm sm:text-base font-sans text-stone-700 leading-relaxed">
               Kerstin A. Wehrmann lives and works in Surlej, Engadine, Switzerland. Her practice centers on bronze sculpture and painting on Plexiglas, with a particular focus on the relationship between humans, animals, and nature.
@@ -23,14 +31,6 @@ const ArtistInformation = () => {
             <p className="text-sm sm:text-base font-sans text-stone-700 leading-relaxed">
               Her work is held in private collections internationally. She has maintained a consistent studio practice for over three decades, grounded in observation and material exploration.
             </p>
-          </div>
-          
-          <div className="relative aspect-[3/4] overflow-hidden">
-            <img
-              src="/Kerstin2.png"
-              alt="Kerstin A. Wehrmann"
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </div>
