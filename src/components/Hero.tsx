@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 overflow-hidden bg-black">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 overflow-hidden sm:bg-black">
       {/* Background Image - Left Positioned */}
-      <div className="absolute inset-0 z-0 ml-80">
+      <div className="absolute inset-0 z-0 sm:ml-80">
         <img
           src="/horse.JPG"
           alt="Bronze sculpture by Kerstin A. Wehrmann"
@@ -15,7 +15,7 @@ const Hero = () => {
         
         {/* Left Edge Gradient - Inside Out */}
         <div 
-          className="absolute inset-0 z-[5]"
+          className="hidden sm:block absolute inset-0 z-[5]"
           style={{
             background: 'linear-gradient(to left, rgba(0,0,0,0) 90%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,1) 100%)',
             pointerEvents: 'none'
@@ -24,7 +24,7 @@ const Hero = () => {
         
         {/* Right Edge Gradient - Inside Out */}
         <div 
-          className="absolute inset-0 z-[5]"
+          className="hidden sm:block absolute inset-0 z-[5]"
           style={{
             background: 'linear-gradient(to right, rgba(0,0,0,0) 90%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,1) 100%)',
             pointerEvents: 'none'
@@ -33,7 +33,7 @@ const Hero = () => {
         
         {/* Additional Right Edge Gradient - Inside the sculpture */}
         <div 
-          className="absolute inset-0 z-[5]"
+          className="hidden sm:block absolute inset-0 z-[5]"
           style={{
             background: 'linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 5%, rgba(0,0,0,1) 8%, rgba(0,0,0,0) 15%)',
             pointerEvents: 'none'
@@ -42,7 +42,7 @@ const Hero = () => {
         
         {/* Middle Gradient - Same as left */}
         <div 
-          className="absolute inset-0 z-[5]"
+          className="hidden sm:block absolute inset-0 z-[5]"
           style={{
             background: 'linear-gradient(to right, rgba(0,0,0,0) 25%, rgba(0,0,0,0.8) 35%, rgba(0,0,0,1) 45%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 45%)',
             pointerEvents: 'none'
