@@ -5,7 +5,7 @@ const Works = () => {
   return (
     <section id="works" className="relative h-[80vh] sm:h-[120vh] flex items-end overflow-hidden sm:mt-20">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 ml-32 mr-32">
+      <div className="absolute inset-0 z-0 sm:ml-32 sm:mr-32">
         <img
           src="/Kerstin.png"
           alt="Kerstin A. Wehrmann at work"

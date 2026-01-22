@@ -132,7 +132,7 @@ const Sculptures = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-12 lg:gap-y-16">
           {sculptures.map((sculpture) => (
             <div key={sculpture.id} className="group">
-              <div className="aspect-square overflow-hidden mb-8 bg-white">
+              <div className="h-80 sm:h-96 overflow-hidden mb-8 bg-white">
                 {sculpture.image && (
                   <img
                     src={sculpture.image}
