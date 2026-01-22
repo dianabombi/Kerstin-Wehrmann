@@ -5,7 +5,7 @@ const Works = () => {
   return (
     <section id="works" className="relative h-[80vh] sm:h-[120vh] flex items-end overflow-hidden sm:mt-20">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 ml-32 mr-32">
         <img
           src="/Kerstin.png"
           alt="Kerstin A. Wehrmann at work"
@@ -21,10 +21,9 @@ const Works = () => {
             pointerEvents: 'none'
           }}
         />
-      </div>
-      
-      {/* Content */}
-      <div className="relative z-10 w-full mx-auto px-4 sm:px-8 pb-12 sm:pb-16">
+        
+        {/* Content */}
+        <div className="absolute bottom-0 left-0 z-10 w-full px-4 sm:px-8 pb-12 sm:pb-16">
         {/* Buttons */}
         <div className="flex flex-col gap-4 sm:gap-6 max-w-xs">
           <Link to="/sculptures" className="px-6 py-3 bg-white text-stone-900 border font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
@@ -34,9 +33,10 @@ const Works = () => {
             Painting
           </Link>
           <Link to="/other-works" className="px-6 py-3 bg-transparent text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 text-center">
-            Other Work
+            Works on Paper
           </Link>
         </div>
+      </div>
       </div>
     </section>
   );

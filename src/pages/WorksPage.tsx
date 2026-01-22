@@ -41,10 +41,10 @@ const WorksPage = () => {
              
             </div>
             
-            {/* Other Work Button */}
+            {/* Works on Paper Button */}
             <div className="mt-6 sm:mt-8">
               <Link to="/other-works" className="px-8 py-4 bg-transparent text-white border border-white font-sans text-sm tracking-luxury uppercase hover:bg-white hover:text-stone-900 transition-colors duration-300 inline-block text-center">
-                Other Work
+                Works on Paper
               </Link>
             </div>
           </div>

@@ -12,22 +12,29 @@ const Exhibitions = () => {
   const exhibitions: Exhibition[] = [
     {
       id: 1,
-      title: "Gallery10",
-      location: "St. Moritz",
-      date: "2024-2026",
-      image: "/Gevena Polo.jpg"
-    },
-    {
-      id: 2,
       title: "Hublot Polo Gold Cup",
-      location: "Gstaad",
+      location: "Gstaad, Switzerland",
       date: "2025",
       image: "/mami im zelt.jpg"
     },
     {
+      id: 2,
+      title: "Galerie10",
+      location: "St. Moritz, Switzerland",
+      date: "2024-2026",
+      image: "/galerie.jpg"
+    },
+    {
       id: 3,
+      title: "40th Snow Polo World Cup St. Moritz",
+      location: "St. Moritz, Switzerland",
+      date: "2026",
+      image: "/Polo on Ice exh.jpg"
+    },
+    {
+      id: 4,
       title: "Geneva Polo Club",
-      location: "Geneva",
+      location: "Veigy-Foncenex, France",
       date: "2025",
       image: "/Gevena Polo.jpg"
     }

@@ -39,46 +39,67 @@ const Sculptures = () => {
   }, []);
   const sculptures: Sculpture[] = [
     {
-      id: 3,
-      title: "Bear",
+      id: 1,
+      title: "Cervus",
       year: "2024",
-      dimensions: "60 × 35 × 30 cm / 23.6 × 13.8 × 11.8 inch",
-      image: "/IMG_6030.jpg"
-    },
-    {
-      id: 4,
-      title: "Ferdinand (Bull)",
-      year: "2025",
-      dimensions: "55 × 40 × 30 cm / 21.7 × 15.7 × 11.8 inch",
-      image: "/IMG_6020.jpg"
+      dimensions: "48 x 44 x 20 cm / 19 x 17 x 8 inch",
+      image: "/deer.jpg"
     },
     {
       id: 2,
-      title: "Capricorn Head",
+      title: "Custodian (Capricorn)",
       year: "2025",
-      dimensions: "50 × 30 × 25 cm / 19.7 × 11.8 × 9.8 inch",
+      dimensions: "50 x 26 x 16 cm / 20 x 10 x 6 inch",
       image: "/steinbockkopf.PNG"
     },
     {
+      id: 3,
+      title: "Custodian (Equine)",
+      year: "2025",
+      dimensions: "44 x 27.5 x 14 cm / 17 x 11 x 6 inch",
+      image: "/horse.JPG"
+    },
+    {
+      id: 4,
+      title: "Equus",
+      year: "2025",
+      dimensions: "58 x 44.5 x 25 cm / 23 x 17 x 10 inch",
+      image: "/IMG_6020.jpg"
+    },
+    {
       id: 5,
-      title: "Monkeys",
-      year: "2023",
-      dimensions: "45 × 35 × 25 cm / 17.7 × 13.8 × 9.8 inch",
-      image: "/monkeys.jpg"
+      title: "Ursus",
+      year: "2009",
+      dimensions: "12 x 12 x 12 cm / 5 x 5 x 5 inch",
+      image: "/IMG_6030.jpg"
     },
     {
       id: 6,
-      title: "Dogs",
-      year: "2024",
-      dimensions: "50 × 30 × 25 cm / 19.7 × 11.8 × 9.8 inch",
-      image: "/dog.JPG"
+      title: "Ferdinand",
+      year: "2025",
+      dimensions: "TBD",
+      image: "/Ferdo.jpg"
     },
     {
-      id: 1,
-      title: "Horse Head",
+      id: 7,
+      title: "Custodian (Cervine)",
       year: "2025",
-      dimensions: "70 × 45 × 30 cm / 27.6 × 17.7 × 11.8 inch",
-      image: "/horse.JPG"
+      dimensions: "46 x 22 x 18 cm / 18 x 9 x 7 inch",
+      image: "/IMG_6030.jpg"
+    },
+    {
+      id: 8,
+      title: "Figures in Relation",
+      year: "2025",
+      dimensions: "24 x 23 x 16 cm / 9.5 x 9 x 6 inch",
+      image: "/monkeys.jpg"
+    },
+    {
+      id: 9,
+      title: "Figures in Waiting",
+      year: "2025",
+      dimensions: "69 x 84 x 33 cm / 27 x 33 x 13 inch",
+      image: "/dog.JPG"
     }
   ];
 
@@ -117,6 +138,7 @@ const Sculptures = () => {
                     src={sculpture.image}
                     alt={sculpture.title}
                     className="w-full h-full object-cover"
+                    style={sculpture.title === "Custodian (Equine)" ? { transform: 'scaleX(-1)' } : {}}
                   />
                 )}
               </div>

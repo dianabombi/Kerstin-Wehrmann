@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 interface OtherWork {
   id: number;
@@ -14,6 +14,8 @@ const OtherWorks = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isOnOtherWorksPage = location.pathname === '/other-works';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,25 +42,25 @@ const OtherWorks = () => {
   const otherWorks: OtherWork[] = [
     {
       id: 1,
-      title: "Other Work I",
+      title: "Head of Capricorn",
       year: "2025",
-      technique: "Mixed media",
+      technique: "Pencil and charcoal on handmade paper collage",
       dimensions: "TBD",
-      image: "/Other1.jpg"
+      image: "/Other2.jpg"
     },
     {
       id: 2,
-      title: "Other Work II",
+      title: "Margna",
       year: "2025",
-      technique: "Mixed media",
+      technique: "Pencil and charcoal on handmade paper collage",
       dimensions: "TBD",
-      image: "/Other2.jpg"
+      image: "/Other1.jpg"
     }
   ];
 
   const OtherWorkCard = ({ work }: { work: OtherWork }) => (
-    <div className="group">
-      <div className="aspect-[3/4] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative">
+    <div className="group max-w-sm mx-auto">
+      <div className="aspect-[2/3] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative">
         {work.image && (
           <img
             src={work.image}
@@ -98,17 +100,19 @@ const OtherWorks = () => {
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-8">
         <div className="relative flex justify-center mb-8 sm:mb-12">
-          <button 
-            onClick={() => navigate(-1)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-stone-900 hover:text-stone-600 transition-colors duration-200"
-            aria-label="Go back"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-            </svg>
-          </button>
+          {isOnOtherWorksPage && (
+            <button 
+              onClick={() => navigate(-1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-stone-900 hover:text-stone-600 transition-colors duration-200"
+              aria-label="Go back"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+            </button>
+          )}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
-            Other Works
+            Works on Paper
           </h2>
         </div>
 

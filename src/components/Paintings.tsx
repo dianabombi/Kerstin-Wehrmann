@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 interface Painting {
   id: number;
@@ -16,6 +16,8 @@ const Paintings = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isOnPaintingsPage = location.pathname === '/paintings';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,24 +43,16 @@ const Paintings = () => {
   const paintings: Painting[] = [
     {
       id: 1,
-      title: "Polo on Ice I",
+      title: "Polo IV",
       year: "2025",
       technique: "ink and acrylic on perspex",
       dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo1.jpg",
-      category: 'polo'
+      image: "/Polo4.jpg",
+      category: 'polo',
+      sold: true
     },
     {
       id: 2,
-      title: "Polo II",
-      year: "2025",
-      technique: "ink and acrylic on perspex",
-      dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo2.jpg",
-      category: 'polo'
-    },
-    {
-      id: 3,
       title: "Polo III",
       year: "2025",
       technique: "ink and acrylic on perspex",
@@ -67,14 +61,22 @@ const Paintings = () => {
       category: 'polo'
     },
     {
-      id: 4,
-      title: "Polo IV",
+      id: 3,
+      title: "Polo II",
       year: "2025",
       technique: "ink and acrylic on perspex",
       dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo4.jpg",
-      category: 'polo',
-      sold: true
+      image: "/Polo2.jpg",
+      category: 'polo'
+    },
+    {
+      id: 4,
+      title: "Polo on Ice I",
+      year: "2025",
+      technique: "ink and acrylic on perspex",
+      dimensions: "91 × 61 cm / 36 × 24 inch",
+      image: "/Polo1.jpg",
+      category: 'polo'
     },
   ];
 
@@ -129,15 +131,17 @@ const Paintings = () => {
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-8">
         <div className="relative flex justify-center mb-8 sm:mb-12">
-          <button 
-            onClick={() => navigate(-1)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-stone-900 hover:text-stone-600 transition-colors duration-200"
-            aria-label="Go back"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-            </svg>
-          </button>
+          {isOnPaintingsPage && (
+            <button 
+              onClick={() => navigate(-1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-stone-900 hover:text-stone-600 transition-colors duration-200"
+              aria-label="Go back"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+            </button>
+          )}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
             Painting
           </h2>
