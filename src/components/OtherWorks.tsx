@@ -63,7 +63,7 @@ const OtherWorks = () => {
   const OtherWorkCard = ({ work, index }: { work: OtherWork; index: number }) => (
     <div className="group max-w-sm mx-auto">
       <div 
-        className="aspect-[2/3] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative cursor-pointer"
+        className="h-[36rem] sm:h-[40rem] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative cursor-pointer flex items-center justify-center"
         onClick={() => work.image && setSelectedImageIndex(index)}
       >
         {work.image && (
@@ -116,7 +116,7 @@ const OtherWorks = () => {
               </svg>
             </button>
           )}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full sm:after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 sm:hover:after:w-full">
             Works on Paper
           </h2>
         </div>

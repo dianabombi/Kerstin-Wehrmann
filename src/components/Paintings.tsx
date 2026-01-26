@@ -86,14 +86,14 @@ const Paintings = () => {
   const PaintingCard = ({ painting, index }: { painting: Painting; index: number }) => (
     <div className="group">
       <div 
-        className="aspect-[3/4] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative cursor-pointer"
+        className="h-[36rem] sm:h-[40rem] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative cursor-pointer flex items-center justify-center"
         onClick={() => painting.image && setSelectedImageIndex(index)}
       >
         {painting.image && (
           <img
             src={painting.image}
             alt={painting.title}
-            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         )}
       </div>
@@ -139,7 +139,7 @@ const Paintings = () => {
               </svg>
             </button>
           )}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full sm:after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 sm:hover:after:w-full">
             Painting
           </h2>
         </div>

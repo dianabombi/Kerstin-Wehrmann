@@ -17,15 +17,15 @@ const Works = () => {
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to right, rgba(28,25,23,0.95) 0%, rgba(41,37,36,0.8) 25%, rgba(68,64,60,0.6) 50%, rgba(87,83,78,0.3) 75%, transparent 100%)',
+            background: 'linear-gradient(to right, rgba(35,34,34,0.95) 0%, rgba(35,34,34,0.8) 25%, rgba(35,34,34,0.6) 50%, rgba(35,34,34,0.3) 75%, transparent 100%)',
             pointerEvents: 'none'
           }}
         />
         
         {/* Content */}
-        <div className="absolute bottom-0 left-0 z-10 w-full px-4 sm:px-8 pb-12 sm:pb-16">
+        <div className="absolute bottom-0 left-0 z-10 w-full px-4 sm:px-8 pb-12 sm:pb-16 flex justify-center sm:justify-start">
         {/* Buttons */}
-        <div className="flex flex-col gap-4 sm:gap-6 max-w-xs">
+        <div className="flex flex-col gap-4 sm:gap-6 max-w-xs w-full sm:w-auto">
           <Link to="/sculptures" className="px-6 py-3 bg-white text-stone-900 border font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
             Sculpture
           </Link>

@@ -51,7 +51,7 @@ const Exhibitions = () => {
     <section id="exhibitions" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex justify-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full sm:after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 sm:hover:after:w-full">
             Exhibitions
           </h2>
         </div>
@@ -60,7 +60,7 @@ const Exhibitions = () => {
           {exhibitions.map((exhibition) => (
             <div key={exhibition.id} className="group">
               {exhibition.image && (
-                <div className="aspect-[4/3] overflow-hidden mb-4 sm:mb-6 bg-stone-50">
+                <div className="h-[36rem] sm:h-auto sm:aspect-[4/3] overflow-hidden mb-4 sm:mb-6 bg-stone-50 flex items-center justify-center">
                   <img
                     src={exhibition.image}
                     alt={exhibition.title}

@@ -11,14 +11,20 @@ interface Sculpture {
 }
 
 const Sculptures = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const isOnSculpturesPage = location.pathname === '/sculptures';
+  const [isVisible, setIsVisible] = useState(isOnSculpturesPage);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // If on sculptures page, make visible immediately
+    if (isOnSculpturesPage) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -38,14 +44,14 @@ const Sculptures = () => {
         observer.unobserve(currentRef);
       }
     };
-  }, []);
+  }, [isOnSculpturesPage]);
   const sculptures: Sculpture[] = [
     {
       id: 1,
       title: "Custodian (Equine)",
       year: "2025",
       dimensions: "44 x 27.5 x 14 cm / 17 x 11 x 6 inch",
-      image: "/horse.JPG"
+      image: "/horseScul.JPG"
     },
     {
       id: 2,
@@ -126,7 +132,7 @@ const Sculptures = () => {
               </svg>
             </button>
           )}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full sm:after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 sm:hover:after:w-full">
             Sculpture
           </h2>
         </div>

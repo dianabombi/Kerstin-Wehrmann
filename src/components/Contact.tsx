@@ -23,14 +23,14 @@ const Contact = () => {
     <section id="contact" className="py-16 sm:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         <div className="flex justify-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 hover:after:w-full">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-stone-900 tracking-luxury relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full sm:after:w-0 after:h-[2px] after:bg-stone-900 after:transition-all after:duration-500 sm:hover:after:w-full">
             Private Inquiry
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-16">
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12">
+          <div className="flex justify-center md:justify-start">
+            <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12 w-full max-w-md">
               <div>
                 <label htmlFor="name" className="block text-xs sm:text-sm font-sans text-stone-700 mb-2 tracking-luxury uppercase">
                   Name
@@ -111,7 +111,16 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="flex justify-center md:justify-end pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end pt-4">
+                <a 
+                  href="mailto:kwehrmann@gmx.ch"
+                  className="inline-flex items-center justify-center gap-3 text-base sm:text-lg font-sans text-white bg-stone-800 hover:bg-stone-700 px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Email
+                </a>
                 <a 
                   href="https://wa.me/41793613709" 
                   target="_blank" 

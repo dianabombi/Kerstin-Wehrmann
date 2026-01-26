@@ -9,14 +9,14 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-white z-50 border-b border-stone-200 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
-          <div className="flex-shrink-0">
+        <div className="flex justify-between items-center h-20 sm:h-24">
+          <div className="flex-shrink-0 pl-2 sm:pl-0">
             <Link to="/" className="text-xl sm:text-2xl font-serif font-light text-stone-900 tracking-luxury">
               WehrmannArt
             </Link>
           </div>
           
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="flex items-center space-x-12">
               {isHomePage ? (
                 <a href="#works" className="relative text-sm font-sans text-stone-900 tracking-luxury uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-stone-900 after:transition-all after:duration-300 hover:after:w-full">
@@ -54,23 +54,25 @@ const Navbar = () => {
                   Contact
                 </Link>
               )}
-              <span className="text-xs font-sans text-stone-600 tracking-wider uppercase">
-                EN | DE
+              <span className="text-sm font-sans tracking-wider uppercase">
+                <span className="text-stone-900 font-semibold">EN</span>
+                <span className="text-stone-400 mx-1">|</span>
+                <span className="text-stone-400">DE</span>
               </span>
             </div>
           </div>
           
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-stone-900 hover:text-stone-600 focus:outline-none p-2 relative z-50"
               aria-label="Toggle menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 17h18" />
                 )}
               </svg>
             </button>
@@ -81,11 +83,11 @@ const Navbar = () => {
       {isOpen && (
         <>
           <div 
-            className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
             onClick={() => setIsOpen(false)}
           ></div>
-          <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 shadow-lg animate-slide-up z-50">
-            <div className="px-8 py-12 space-y-12">
+          <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 shadow-lg animate-slide-up z-50">
+            <div className="px-12 py-16 space-y-16">
               {isHomePage ? (
                 <a href="#works" className="block text-lg font-sans text-stone-900 tracking-luxury uppercase" onClick={() => setIsOpen(false)}>
                   Works
@@ -123,8 +125,10 @@ const Navbar = () => {
                 </Link>
               )}
               <div className="pt-4 border-t border-stone-200">
-                <span className="block text-xs font-sans text-stone-600 tracking-wider uppercase">
-                  EN | DE
+                <span className="block text-base font-sans tracking-wider uppercase">
+                  <span className="text-stone-900 font-semibold">EN</span>
+                  <span className="text-stone-400 mx-1">|</span>
+                  <span className="text-stone-400">DE</span>
                 </span>
               </div>
             </div>
