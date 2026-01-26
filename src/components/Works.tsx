@@ -10,7 +10,7 @@ const Works = () => {
           src="/Kerstin.png"
           alt="Kerstin A. Wehrmann at work"
           className="w-full h-full object-cover"
-          style={{ objectPosition: '50% 1%' }}
+          style={{ objectPosition: '70% 1%' }}
         />
         
         {/* Dark Grey Gradient Overlay */}
