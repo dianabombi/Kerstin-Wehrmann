@@ -58,7 +58,7 @@ const Paintings = () => {
       year: "2025",
       technique: "ink and acrylic on perspex",
       dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo2.jpg",
+      image: "/CorrectedPolo2.jpg",
       category: 'polo'
     },
     {

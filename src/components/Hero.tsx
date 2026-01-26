@@ -3,50 +3,14 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 overflow-hidden bg-black">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 overflow-hidden" style={{ backgroundColor: '#232222' }}>
       {/* Background Image - Left Positioned */}
-      <div className="absolute inset-0 z-0 ml-80">
+      <div className="absolute inset-0 z-0 ml-32 mt-10 ">
         <img
-          src="/horse.JPG"
+          src="/HorseHead.jpg"
           alt="Bronze sculpture by Kerstin A. Wehrmann"
           className=" h-full object-cover"
-          style={{ objectPosition: '5% 25%' }}
-        />
-        
-        {/* Left Edge Gradient - Inside Out */}
-        <div 
-          className="absolute inset-0 z-[5]"
-          style={{
-            background: 'linear-gradient(to left, rgba(0,0,0,0) 90%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,1) 100%)',
-            pointerEvents: 'none'
-          }}
-        />
-        
-        {/* Right Edge Gradient - Inside Out */}
-        <div 
-          className="absolute inset-0 z-[5]"
-          style={{
-            background: 'linear-gradient(to right, rgba(0,0,0,0) 90%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,1) 100%)',
-            pointerEvents: 'none'
-          }}
-        />
-        
-        {/* Additional Right Edge Gradient - Inside the sculpture */}
-        <div 
-          className="absolute inset-0 z-[5]"
-          style={{
-            background: 'linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 5%, rgba(0,0,0,1) 8%, rgba(0,0,0,0) 15%)',
-            pointerEvents: 'none'
-          }}
-        />
-        
-        {/* Middle Gradient - Same as left */}
-        <div 
-          className="absolute inset-0 z-[5]"
-          style={{
-            background: 'linear-gradient(to right, rgba(0,0,0,0) 25%, rgba(0,0,0,0.8) 35%, rgba(0,0,0,1) 45%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 45%)',
-            pointerEvents: 'none'
-          }}
+          style={{ objectPosition: 'left center' }}
         />
       </div>
   
@@ -65,10 +29,10 @@ const Hero = () => {
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-4 justify-end">
                 <Link to="/works" className="text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block bg-white text-stone-900 border border-white hover:bg-stone-900 hover:text-white transition-colors duration-300">
-                  Selected Works
+                  SELECTED WORKS
                 </Link>
                 <a href="#contact" className="btn-secondary text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block">
-                  Private Inquiry
+                  PRIVATE INQUIRY
                 </a>
               </div>
             </div>

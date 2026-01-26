@@ -77,10 +77,10 @@ const Sculptures = () => {
     },
     {
       id: 6,
-      title: "",
-      year: "",
-      dimensions: "",
-      image: ""
+      title: "Figures in Waiting",
+      year: "2025",
+      dimensions: "69 x 84 x 33 cm / 27 x 33 x 13 inch",
+      image: "/dog.JPG"
     },
     {
       id: 7,
@@ -90,25 +90,18 @@ const Sculptures = () => {
       image: "/monkeys.jpg"
     },
     {
-      id: 7,
+      id: 8,
       title: "Ferdinand",
       year: "2025",
       dimensions: "TBD",
       image: "/Ferdo.jpg"
     },
     {
-      id: 8,
+      id: 9,
       title: "Cervus",
       year: "2024",
       dimensions: "48 x 44 x 20 cm / 19 x 17 x 8 inch",
       image: "/deer.jpg"
-    },
-    {
-      id: 9,
-      title: "Figures in Waiting",
-      year: "2025",
-      dimensions: "69 x 84 x 33 cm / 27 x 33 x 13 inch",
-      image: "/dog.JPG"
     }
   ];
 
@@ -149,7 +142,11 @@ const Sculptures = () => {
                   <img
                     src={sculpture.image}
                     alt={sculpture.title}
-                    className="w-auto h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    className={`transition-transform duration-300 group-hover:scale-105 ${
+                      sculpture.title.startsWith('Custodian')
+                        ? 'w-full h-full object-cover'
+                        : 'w-auto h-full object-contain'
+                    }`}
                     style={sculpture.title === "Custodian (Equine)" ? { transform: 'scaleX(-1)' } : {}}
                   />
                 </div>
