@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import ImageModal from './ImageModal';
 
 interface Sculpture {
   id: number;
@@ -11,6 +12,7 @@ interface Sculpture {
 
 const Sculptures = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -40,10 +42,10 @@ const Sculptures = () => {
   const sculptures: Sculpture[] = [
     {
       id: 1,
-      title: "Cervus",
-      year: "2024",
-      dimensions: "48 x 44 x 20 cm / 19 x 17 x 8 inch",
-      image: "/deer.jpg"
+      title: "Custodian (Equine)",
+      year: "2025",
+      dimensions: "44 x 27.5 x 14 cm / 17 x 11 x 6 inch",
+      image: "/horse.JPG"
     },
     {
       id: 2,
@@ -54,10 +56,10 @@ const Sculptures = () => {
     },
     {
       id: 3,
-      title: "Custodian (Equine)",
+      title: "Custodian (Cervine)",
       year: "2025",
-      dimensions: "44 x 27.5 x 14 cm / 17 x 11 x 6 inch",
-      image: "/horse.JPG"
+      dimensions: "46 x 22 x 18 cm / 18 x 9 x 7 inch",
+      image: "/deer.jpg"
     },
     {
       id: 4,
@@ -75,24 +77,31 @@ const Sculptures = () => {
     },
     {
       id: 6,
+      title: "",
+      year: "",
+      dimensions: "",
+      image: ""
+    },
+    {
+      id: 7,
+      title: "Figures in Relation",
+      year: "2025",
+      dimensions: "24 x 23 x 16 cm / 9.5 x 9 x 6 inch",
+      image: "/monkeys.jpg"
+    },
+    {
+      id: 7,
       title: "Ferdinand",
       year: "2025",
       dimensions: "TBD",
       image: "/Ferdo.jpg"
     },
     {
-      id: 7,
-      title: "Custodian (Cervine)",
-      year: "2025",
-      dimensions: "46 x 22 x 18 cm / 18 x 9 x 7 inch",
-      image: "/IMG_6030.jpg"
-    },
-    {
       id: 8,
-      title: "Figures in Relation",
-      year: "2025",
-      dimensions: "24 x 23 x 16 cm / 9.5 x 9 x 6 inch",
-      image: "/monkeys.jpg"
+      title: "Cervus",
+      year: "2024",
+      dimensions: "48 x 44 x 20 cm / 19 x 17 x 8 inch",
+      image: "/deer.jpg"
     },
     {
       id: 9,
@@ -130,43 +139,58 @@ const Sculptures = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-12 lg:gap-y-16">
-          {sculptures.map((sculpture) => (
-            <div key={sculpture.id} className="group">
-              <div className="h-80 sm:h-96 overflow-hidden mb-8 bg-white">
-                {sculpture.image && (
+          {sculptures.map((sculpture, index) => (
+            sculpture.image ? (
+              <div key={sculpture.id} className="group">
+                <div 
+                  className="h-[36rem] sm:h-[40rem] overflow-hidden mb-8 bg-white cursor-pointer flex items-center justify-center"
+                  onClick={() => sculpture.image && setSelectedImageIndex(index)}
+                >
                   <img
                     src={sculpture.image}
                     alt={sculpture.title}
-                    className="w-full h-full object-cover"
+                    className="w-auto h-full object-contain transition-transform duration-300 group-hover:scale-105"
                     style={sculpture.title === "Custodian (Equine)" ? { transform: 'scaleX(-1)' } : {}}
                   />
-                )}
+                </div>
+                
+                <div className="text-center space-y-1 sm:space-y-2">
+                  <h3 className="text-lg sm:text-xl font-serif font-light text-stone-900 tracking-luxury">
+                    {sculpture.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-sans text-stone-600">
+                    Bronze
+                  </p>
+                  <p className="text-xs sm:text-sm font-sans text-stone-600">
+                    {sculpture.dimensions}
+                  </p>
+                  <p className="text-xs sm:text-sm font-sans text-stone-600">
+                    {sculpture.year}
+                  </p>
+                  <a href="#contact" className="inline-block text-xs sm:text-sm font-sans text-stone-900 border border-stone-900 px-6 py-2 hover:bg-stone-900 hover:text-white transition-colors duration-300 tracking-luxury uppercase mt-6 sm:mt-8">
+                    Private Inquiry
+                  </a>
+                </div>
               </div>
-              
-              <div className="text-center space-y-1 sm:space-y-2">
-                <h3 className="text-lg sm:text-xl font-serif font-light text-stone-900 tracking-luxury">
-                  {sculpture.title}
-                </h3>
-                <p className="text-xs sm:text-sm font-sans text-stone-600">
-                  {sculpture.year}
-                </p>
-                <p className="text-xs sm:text-sm font-sans text-stone-600">
-                  Bronze
-                </p>
-                <p className="text-xs sm:text-sm font-sans text-stone-600">
-                  {sculpture.dimensions}
-                </p>
-                <a href="#contact" className="inline-block text-xs sm:text-sm font-sans text-stone-900 border border-stone-900 px-6 py-2 hover:bg-stone-900 hover:text-white transition-colors duration-300 tracking-luxury uppercase mt-6 sm:mt-8">
-                  Private Inquiry
-                </a>
-              </div>
-            </div>
+            ) : (
+              <div key={sculpture.id} className="invisible"></div>
+            )
           ))}
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-16 sm:mt-20">
         <div className="h-px bg-gradient-to-r from-transparent via-stone-300 to-transparent"></div>
       </div>
+      <ImageModal
+        isOpen={selectedImageIndex !== null}
+        onClose={() => setSelectedImageIndex(null)}
+        imageSrc={selectedImageIndex !== null ? sculptures[selectedImageIndex]?.image || '' : ''}
+        imageAlt={selectedImageIndex !== null ? sculptures[selectedImageIndex]?.title || '' : ''}
+        onPrevious={() => setSelectedImageIndex(prev => prev !== null && prev > 0 ? prev - 1 : prev)}
+        onNext={() => setSelectedImageIndex(prev => prev !== null && prev < sculptures.length - 1 ? prev + 1 : prev)}
+        hasPrevious={selectedImageIndex !== null && selectedImageIndex > 0}
+        hasNext={selectedImageIndex !== null && selectedImageIndex < sculptures.length - 1}
+      />
     </section>
   );
 };

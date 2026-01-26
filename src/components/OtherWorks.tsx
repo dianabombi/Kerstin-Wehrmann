@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import ImageModal from './ImageModal';
 
 interface OtherWork {
   id: number;
@@ -12,6 +13,7 @@ interface OtherWork {
 
 const OtherWorks = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,7 +47,7 @@ const OtherWorks = () => {
       title: "Head of Capricorn",
       year: "2025",
       technique: "Pencil and charcoal on handmade paper collage",
-      dimensions: "TBD",
+      dimensions: "100 x 82 cm / 39 x 32 inch",
       image: "/Other2.jpg"
     },
     {
@@ -53,19 +55,22 @@ const OtherWorks = () => {
       title: "Margna",
       year: "2025",
       technique: "Pencil and charcoal on handmade paper collage",
-      dimensions: "TBD",
+      dimensions: "100 x 82 cm / 39 x 32 inch",
       image: "/Other1.jpg"
     }
   ];
 
-  const OtherWorkCard = ({ work }: { work: OtherWork }) => (
+  const OtherWorkCard = ({ work, index }: { work: OtherWork; index: number }) => (
     <div className="group max-w-sm mx-auto">
-      <div className="aspect-[2/3] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative">
+      <div 
+        className="aspect-[2/3] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative cursor-pointer"
+        onClick={() => work.image && setSelectedImageIndex(index)}
+      >
         {work.image && (
           <img
             src={work.image}
             alt={work.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         )}
       </div>
@@ -119,8 +124,8 @@ const OtherWorks = () => {
         <div>
           <div className="-mx-2 sm:mx-0">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-8 lg:gap-x-16 gap-y-12 sm:gap-y-12 lg:gap-y-16">
-              {otherWorks.map((work) => (
-                <OtherWorkCard key={work.id} work={work} />
+              {otherWorks.map((work, index) => (
+                <OtherWorkCard key={work.id} work={work} index={index} />
               ))}
             </div>
           </div>
@@ -129,6 +134,16 @@ const OtherWorks = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-16 sm:mt-20">
         <div className="h-px bg-gradient-to-r from-transparent via-stone-300 to-transparent"></div>
       </div>
+      <ImageModal
+        isOpen={selectedImageIndex !== null}
+        onClose={() => setSelectedImageIndex(null)}
+        imageSrc={selectedImageIndex !== null ? otherWorks[selectedImageIndex]?.image || '' : ''}
+        imageAlt={selectedImageIndex !== null ? otherWorks[selectedImageIndex]?.title || '' : ''}
+        onPrevious={() => setSelectedImageIndex(prev => prev !== null && prev > 0 ? prev - 1 : prev)}
+        onNext={() => setSelectedImageIndex(prev => prev !== null && prev < otherWorks.length - 1 ? prev + 1 : prev)}
+        hasPrevious={selectedImageIndex !== null && selectedImageIndex > 0}
+        hasNext={selectedImageIndex !== null && selectedImageIndex < otherWorks.length - 1}
+      />
     </section>
   );
 };
