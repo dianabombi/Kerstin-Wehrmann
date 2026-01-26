@@ -21,15 +21,19 @@ const ArtistInformation = () => {
           
           <div className="space-y-4 sm:space-y-6">
             <p className="text-sm sm:text-base font-sans text-stone-700 leading-relaxed">
-              Kerstin A. Wehrmann lives and works in Surlej, Engadine, Switzerland. Her practice centers on bronze sculpture and painting on Plexiglas, with a particular focus on the relationship between humans, animals, and nature.
+              Originally from Germany, the artist Kerstin A. Wehrmann lives and works in the idyllic area of St. Moritz, Engadine, a region that deeply inspires her with its rugged nature and expansive, clear landscapes. The untamed wilderness and the play of light and shadow in the mountains continuously offer new inspiration. Her goal is to highlight the fragility of the natural balance and the connection between humans and animals, as well as the need to protect nature and wildlife, while not neglecting its aesthetic beauty. For her, working with bronze is a tribute to the durability and resilience of nature.
             </p>
             
             <p className="text-sm sm:text-base font-sans text-stone-700 leading-relaxed">
-              Working primarily in bronze, Wehrmann creates sculptures that explore form, movement, and the enduring qualities of natural subjects. Her paintings employ a reverse technique on Plexiglas, requiring extensive preliminary studies before application.
+              Her bronze sculptures focus on animals and natural forms, not as representation but as presence. Movement is suggested rather than described, held in a state of quiet tension. Strength and stillness coexist, informed by the alpine environment that surrounds her studio.
             </p>
             
             <p className="text-sm sm:text-base font-sans text-stone-700 leading-relaxed">
-              Her work is held in private collections internationally. She has maintained a consistent studio practice for over three decades, grounded in observation and material exploration.
+              Alongside sculpture, Wehrmann creates paintings on Perspex using a reverse technique that allows no revision. Each work is preceded by prolonged observation and exact preparation. Once executed, the image is fixed. This process reflects the core of her practice: clarity of intention and commitment to the final gesture.
+            </p>
+            
+            <p className="text-sm sm:text-base font-sans text-stone-700 leading-relaxed">
+              For more than three decades, Wehrmann has maintained a continuous studio practice. Her works are held in international private collections and are often placed in architectural and natural contexts where material, space, and silence are equally considered.
             </p>
           </div>
         </div>

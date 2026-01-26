@@ -4,23 +4,13 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-20 sm:pb-0 overflow-hidden" style={{ backgroundColor: '#232222' }}>
-      {/* Background Image - Mobile version */}
-      <div className="absolute inset-0 z-0 sm:hidden ">
-        <img
-          src="/horse.JPG"
-          alt="Bronze sculpture by Kerstin A. Wehrmann"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
-        />
-      </div>
-      
-      {/* Background Image - Desktop version */}
-      <div className="absolute inset-0 z-0 ml-32 mt-10 hidden sm:block">
+      {/* Background Image - Left Positioned */}
+      <div className="absolute inset-0 z-0 ml-32 mt-10 ">
         <img
           src="/HorseHead.jpg"
           alt="Bronze sculpture by Kerstin A. Wehrmann"
-          className="h-full object-cover"
-          style={{ objectPosition: '5% 25%' }}
+          className=" h-full object-cover"
+          style={{ objectPosition: 'left center' }}
         />
       </div>
   
@@ -39,10 +29,10 @@ const Hero = () => {
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-4 justify-end">
                 <Link to="/works" className="text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block bg-white text-stone-900 border border-white hover:bg-stone-900 hover:text-white transition-colors duration-300">
-                  Selected Works
+                  SELECTED WORKS
                 </Link>
                 <a href="#contact" className="btn-secondary text-center py-3.5 sm:py-3 text-sm px-6 sm:px-8 inline-block">
-                  Private Inquiry
+                  PRIVATE INQUIRY
                 </a>
               </div>
             </div>

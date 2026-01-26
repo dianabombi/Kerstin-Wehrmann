@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import ImageModal from './ImageModal';
 
 interface Painting {
   id: number;
@@ -14,6 +15,7 @@ interface Painting {
 
 const Paintings = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,16 +45,24 @@ const Paintings = () => {
   const paintings: Painting[] = [
     {
       id: 1,
-      title: "Polo IV",
+      title: "Polo I",
       year: "2025",
       technique: "ink and acrylic on perspex",
       dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo4.jpg",
-      category: 'polo',
-      sold: true
+      image: "/Polo1.jpg",
+      category: 'polo'
     },
     {
       id: 2,
+      title: "Polo II",
+      year: "2025",
+      technique: "ink and acrylic on perspex",
+      dimensions: "91 × 61 cm / 36 × 24 inch",
+      image: "/CorrectedPolo2.jpg",
+      category: 'polo'
+    },
+    {
+      id: 3,
       title: "Polo III",
       year: "2025",
       technique: "ink and acrylic on perspex",
@@ -61,41 +71,30 @@ const Paintings = () => {
       category: 'polo'
     },
     {
-      id: 3,
-      title: "Polo II",
-      year: "2025",
-      technique: "ink and acrylic on perspex",
-      dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo2.jpg",
-      category: 'polo'
-    },
-    {
       id: 4,
-      title: "Polo on Ice I",
+      title: "Polo IV",
       year: "2025",
       technique: "ink and acrylic on perspex",
       dimensions: "91 × 61 cm / 36 × 24 inch",
-      image: "/Polo1.jpg",
+      image: "/Polo4.jpg",
       category: 'polo'
     },
   ];
 
   const poloPaintings = paintings.filter(p => p.category === 'polo');
 
-  const PaintingCard = ({ painting }: { painting: Painting }) => (
+  const PaintingCard = ({ painting, index }: { painting: Painting; index: number }) => (
     <div className="group">
-      <div className="aspect-[3/4] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative">
+      <div 
+        className="aspect-[3/4] overflow-hidden mb-6 sm:mb-6 lg:mb-8 bg-white relative cursor-pointer"
+        onClick={() => painting.image && setSelectedImageIndex(index)}
+      >
         {painting.image && (
           <img
             src={painting.image}
             alt={painting.title}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
           />
-        )}
-        {painting.sold && (
-          <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-stone-900 text-white px-4 sm:px-4 py-2 sm:py-2 text-xs tracking-wider uppercase">
-            SOLD
-          </div>
         )}
       </div>
       
@@ -112,11 +111,9 @@ const Paintings = () => {
         <p className="text-sm sm:text-sm font-sans text-stone-600">
           {painting.year}
         </p>
-        {!painting.sold && (
-          <Link to="/#contact" className="inline-block text-sm sm:text-sm font-sans text-stone-900 border border-stone-900 px-6 py-2 hover:bg-stone-900 hover:text-white transition-colors duration-300 tracking-luxury uppercase mt-6 sm:mt-8">
-            Private Inquiry
-          </Link>
-        )}
+        <Link to="/#contact" className="inline-block text-sm sm:text-sm font-sans text-stone-900 border border-stone-900 px-6 py-2 hover:bg-stone-900 hover:text-white transition-colors duration-300 tracking-luxury uppercase mt-6 sm:mt-8">
+          Private Inquiry
+        </Link>
       </div>
     </div>
   );
@@ -153,8 +150,8 @@ const Paintings = () => {
           </h3>
           <div className="-mx-2 sm:mx-0">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-8 lg:gap-x-16 gap-y-12 sm:gap-y-12 lg:gap-y-16">
-              {poloPaintings.map((painting) => (
-                <PaintingCard key={painting.id} painting={painting} />
+              {poloPaintings.map((painting, index) => (
+                <PaintingCard key={painting.id} painting={painting} index={index} />
               ))}
             </div>
           </div>
@@ -163,6 +160,16 @@ const Paintings = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-16 sm:mt-20">
         <div className="h-px bg-gradient-to-r from-transparent via-stone-300 to-transparent"></div>
       </div>
+      <ImageModal
+        isOpen={selectedImageIndex !== null}
+        onClose={() => setSelectedImageIndex(null)}
+        imageSrc={selectedImageIndex !== null ? poloPaintings[selectedImageIndex]?.image || '' : ''}
+        imageAlt={selectedImageIndex !== null ? poloPaintings[selectedImageIndex]?.title || '' : ''}
+        onPrevious={() => setSelectedImageIndex(prev => prev !== null && prev > 0 ? prev - 1 : prev)}
+        onNext={() => setSelectedImageIndex(prev => prev !== null && prev < poloPaintings.length - 1 ? prev + 1 : prev)}
+        hasPrevious={selectedImageIndex !== null && selectedImageIndex > 0}
+        hasNext={selectedImageIndex !== null && selectedImageIndex < poloPaintings.length - 1}
+      />
     </section>
   );
 };
