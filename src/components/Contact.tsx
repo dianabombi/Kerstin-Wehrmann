@@ -106,7 +106,7 @@ const Contact = () => {
                 <p className="text-base sm:text-lg font-sans text-stone-800 leading-relaxed">
                   Kerstin A. Wehrmann<br />
                   <a href="mailto:kwehrmann@gmx.ch" className="hover:text-stone-900 transition-colors duration-200 underline decoration-stone-300 hover:decoration-stone-900">
-                    kwehrmann@gmx.ch
+                    kwehrmann[at]gmx.ch
                   </a>
                 </p>
               </div>
