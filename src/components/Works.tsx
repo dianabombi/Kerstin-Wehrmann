@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Works = () => {
   return (
-    <section id="works" className="relative h-[70vh] sm:h-[85vh] flex items-center overflow-hidden sm:mt-20">
+    <section id="works" className="relative h-[70vh] sm:h-[85vh] flex items-center overflow-hidden overflow-x-hidden sm:mt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 sm:ml-32 sm:mr-32">
         <img

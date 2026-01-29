@@ -62,10 +62,10 @@ const Navbar = () => {
             </div>
           </div>
           
-          <div className="lg:hidden">
+          <div className="lg:hidden relative z-[60] pr-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-stone-900 hover:text-stone-600 focus:outline-none p-2 relative z-50"
+              className="text-stone-900 hover:text-stone-600 focus:outline-none p-2 relative"
               aria-label="Toggle menu"
             >
               <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
