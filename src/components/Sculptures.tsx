@@ -82,13 +82,6 @@ const Sculptures = () => {
       image: "/IMG_6030.jpg"
     },
     {
-      id: 6,
-      title: "Figures in Waiting",
-      year: "2025",
-      dimensions: "69 x 84 x 33 cm / 27 x 33 x 13 inch",
-      image: "/dog.JPG"
-    },
-    {
       id: 7,
       title: "Figures in Relation",
       year: "2025",
@@ -108,6 +101,13 @@ const Sculptures = () => {
       year: "2024",
       dimensions: "48 x 44 x 20 cm / 19 x 17 x 8 inch",
       image: "/deer.jpg"
+    },
+    {
+      id: 6,
+      title: "Figures in Waiting",
+      year: "2025",
+      dimensions: "69 x 84 x 33 cm / 27 x 33 x 13 inch",
+      image: "/dog.JPG"
     }
   ];
 
@@ -137,7 +137,7 @@ const Sculptures = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-12 lg:gap-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-12 lg:gap-y-16">
           {sculptures.map((sculpture, index) => (
             sculpture.image ? (
               <div key={sculpture.id} className="group">
@@ -150,10 +150,9 @@ const Sculptures = () => {
                     alt={sculpture.title}
                     className={`transition-transform duration-300 group-hover:scale-105 ${
                       sculpture.title.startsWith('Custodian')
-                        ? 'w-full h-full object-cover'
-                        : 'w-auto h-full object-contain'
+                        ? 'h-full w-auto object-cover'
+                        : 'w-full h-full object-contain'
                     }`}
-                    style={sculpture.title === "Custodian (Equine)" ? { transform: 'scaleX(-1)' } : {}}
                   />
                 </div>
                 

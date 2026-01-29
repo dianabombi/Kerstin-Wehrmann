@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
         <div className="text-center sm:text-right space-y-1 sm:space-y-2">
           <p className="text-xs sm:text-sm font-sans text-stone-600">
-            © 2025 WehrmannArt
+            © 2026 WehrmannArt
           </p>
           <p className="text-xs font-sans text-stone-500">
             Created by{' '}

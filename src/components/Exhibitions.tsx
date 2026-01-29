@@ -43,7 +43,7 @@ const Exhibitions = () => {
       title: "Katharina Kamm Raumkultur",
       location: "Gmund am Tegernsee, Germany",
       date: "2025-2026",
-      image: ""
+      image: "/Katharina Kamm.jpeg"
     }
   ];
 

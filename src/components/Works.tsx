@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Works = () => {
   return (
-    <section id="works" className="relative h-[80vh] sm:h-[120vh] flex items-end overflow-hidden sm:mt-20">
+    <section id="works" className="relative h-[70vh] sm:h-[85vh] flex items-center overflow-hidden sm:mt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 sm:ml-32 sm:mr-32">
         <img
@@ -23,7 +23,7 @@ const Works = () => {
         />
         
         {/* Content */}
-        <div className="absolute bottom-0 left-0 z-10 w-full px-4 sm:px-8 pb-12 sm:pb-16 flex justify-center sm:justify-start">
+        <div className="absolute bottom-16 sm:top-1/2 sm:-translate-y-1/2 left-0 z-10 w-full px-4 sm:px-8 flex justify-center sm:justify-start">
         {/* Buttons */}
         <div className="flex flex-col gap-4 sm:gap-6 max-w-xs w-full sm:w-auto">
           <Link to="/sculptures" className="px-6 py-3 bg-white text-stone-900 border font-sans text-sm tracking-luxury uppercase hover:bg-stone-900 hover:text-white transition-colors duration-300 text-center">
